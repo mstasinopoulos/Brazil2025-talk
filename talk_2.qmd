@@ -34,7 +34,7 @@ bibliography: book2025.bib
 ---
 
 
-## Indroduction 
+## Introduction 
 
 
 ::: {.incremental}
