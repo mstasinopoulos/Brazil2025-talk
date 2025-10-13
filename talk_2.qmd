@@ -1,0 +1,839 @@
+---
+title: "Regression Models"
+subtitle: "how to adapt for climate change challenges"
+title-slide-attributes:
+    data-background-image: Uni_greenwich.png
+    data-background-size: contain
+    data-background-opacity: "0.20"
+author: Mikis Stasinopoulos (University  of Greenwich)
+
+format:
+  revealjs:
+    logo: gamlss-trans.png
+    footer: "www.gamlss.com"
+    theme: sky
+    auto-stretch: true
+    slideNumber: true
+
+# format:
+#     revealjs
+#   multiplex: true
+#   slide-number: true
+#   show-slide-number: print
+#   chalkboard:
+#     buttons: true
+#   incremental: false
+#   menu:
+#     side: left
+#     width: wide
+#   logo: gamlss-trans.png
+#   footer: "www.gamlss.com"
+#   css: styles.css
+#   theme: sky
+bibliography: book2025.bib       
+---
+
+
+## Indroduction 
+
+
+::: {.incremental}
+- `machine learning models` as they stand, are not always  suitable for environmental data   
+
+- `goodness of fit` measure should represent more closely the `question` in hand 
+
+- `Interpretation` of the model is important for  improvements in scientific knowledge 
+
+- this talk is  my `personal` opinion on how regression models should adapt for environmental `data` 
+:::
+
+
+
+
+## Data
+
+  **data**; used to mean a file with a lot of; 
+  
+::: {.incremental}
+- `numbers`, (but data today could have) 
+- `text`, 
+- `pixels`, or
+- any other file that containing  `information`.
+:::
+
+
+::: {.incremental}
+   **data analysis** is the art of extraction `information` from the data. 
+
+   Regression model deal with `tabular` data 
+:::
+
+## Tabular data {.smaller}
+
+| obs number | y      | x~1~    | x~2~    | x~3~    | ... | x~r-1~    | x~r~    |
+|------------|--------|---------|---------|---------|-----|-----------|---------|
+| 1          | y~1~   | x~11~   | x~12~   | x~13~   | ... | x~1r-1~   | x~1r~   |
+| 2          | y~2~   | x~21~   | x~22~   | x~23~   | ... | x~2r-1~   | x~2r~   |
+| 3          | y~3~   | x~31~   | x~32~   | x~33~   | ... | x~3r-1~   | x~3r~   |
+| ...        | ...    | ...     | ...     | ...     | ... | ...       | ...     |
+| n-1        | y~n-1~ | x~n-11~ | x~n-12~ | x~n-12~ | ... | x~n-1r-1~ | x~n-1r~ |
+| n          | y~n~   | x~n1~   | x~n2~   | x~n3~   | ... | x~nr-1~   | x~nr~   |
+
+: The Table of Data {#tbl-TheTableofData .striped .hover}
+
+
+## Data 
+
+
+::: {.incremental}
+- The size of observations  $n$  keeps growing  over time
+
+- the size of the variables $r$ is also increase
+
+- traditionally $n > r$ but now other situations are common
+
+- there is `information` in data before start modelling we need to explore 
+ (see the package `gamlss.prepdata`)
+
+
+- data `partition`  helps the model building?
+:::
+
+## Data Partition 
+
+::: {.incremental}
+data partition help with 
+
+- checking  for `over-fitting`
+
+-  helping to improve `inference` by providing extra information about variations 
+
+ there two types of partition 
+   
+   - `single` partition (holdout samples)
+   
+   - `multiple` partitions (bootstrapping, K-fold cross validation )
+:::
+
+## Data Partition (2)
+
+ ![](data_partition.png){width=100}
+
+
+
+## Examples of data 
+
+
+
+::: {.incremental}
+- `toxicity` in USA  lakes [@merder2023geographic]
+
+- `pollution` in the oceans using satellite images [@merder2024novel]
+
+- `arsenic` in  EU soil see [@fendrich2024modeling]
+
+- monitor liver functions during `pregnancy`  [@judah2025reference]
+
+- `phosphorus` in the soil in EU (current work)
+:::
+
+## Examples; liver function  
+
+```{r}
+#| warning: false 
+#| echo: false
+#| output: false 
+library(gamlss.prepdata) 
+library(ggplot2) 
+rm(list=ls())
+da <- read.csv('/Users/dimitriosstasinopoulos/Dropbox/2025/Kametas/NewAnalysis/Reference ranges_NK_2025_06_26.csv')
+da <- data_rm(da, vars=c("X","X.1","X.2"))
+da <- data_select(da, vars= c("ALP", "age","race", "ht","wt", "BMI" ,
+            "conception","smoking","parity", "ga"))
+da$ALP <- as.numeric(da$ALP)
+#data_na_obs(da) # 2068
+da <- data_cha2fac(da)
+#data_na_obs(da)# new function 
+da<- na.omit(da)
+#da <- da[-c(2869, 3094, 3254, 3269, 266, 3096, 3094),]
+da <- da[ da$ALP<390, ]
+da <- da[-266, ]
+dim(da)
+#plot(ALP~ga, data=da, pch=19, cex=.5, ylim=c(0,390))
+```
+
+
+```{r}
+#| echo: false
+#| output: false 
+DA <- data_part(da)
+dim(DA)
+DA.train <- subset(DA, partition=="train")
+DA.test <-  subset(DA, partition=="test")
+dim(DA.train)
+dim(DA.test)
+```
+
+
+```{r}
+library(gamlss2)
+plot(ALP~ga, data=DA.train, xlab="gestational age")
+```
+
+
+
+## Example; liver function 2 
+
+
+- the response is `ALP` Alkaline Phosphatase an enzyme found throughout the body, but especially in:
+Liver, Bones, Kidneys, Intestines, Placenta (during pregnancy)
+
+- the x-var is `gestation age` 
+
+- To analyse data we use `models`.
+
+## Models
+
+
+
+- a `model` is a simplification of reality. 
+
+::: {.incremental}
+  - **toy** models,  ![toy model](toy_car.png){width=80}
+  - **fashion** models  ![fashion model](maleFashionModel.png){width=80}
+  - **mathematical** models. ![math model](math_model.png){width=80} where mathematical equations are used to describe reality.
+:::
+
+
+
+## Models (2)    {.pause}
+
+::: {.incremental}
+-
+> `all models are wrong but some are useful`.
+>
+> -- George  @box1979robustness
+
+- whether a model is useful depends on the `purpose` of the study.
+
+- is the `model` adequate to answer the `question`? 
+:::
+
+## question 
+
+::: {.incremental}
+
+- the `question` is the `hypothesis`, the `purpose` of the study; It is what the researcher tries to understand and answer
+
+- the next question is: 
+
+  can the `data` or the `model` answer the question in hand? 
+
+- if the answer is `yes` then `how`. Can be answered by `regression`? 
+
+
+- regression is an `input-output` model. 
+
+:::
+
+## Input-output {.pause}
+
+::: {.incremental}
+
+- we have information on variable(s) $X$, the **input** variables, 
+
+- and we want to use this information to say something about the variable(s) $Y$ the **output**.
+
+- Input-output model are `supervised` learning model (since a `response` variable exist)
+:::
+
+##  Input-output (2)
+
+
+ @breiman2003statistical
+
+::: {.incremental}
+::: {.incremental}
+-
+$$
+X  {\longrightarrow}  \fbox{NATURE} {\longrightarrow} Y, \ \textit{(complex)}
+$$
+
+-
+$$
+X  {\longrightarrow}  \fbox{Model} {\longrightarrow} Y \ \textit{(simpler)}
+$$
+-
+$$
+X  {\longrightarrow} \fbox{f()}  {\longrightarrow} Y \ \textit{(mathematical model)}
+$$
+:::
+
+
+- the task is to unmask the unknown `function` $f()$.
+
+- a compete unspecified function lead  to AI otherwise we rely on `assumtions`
+:::
+
+<!-- ## AI  -->
+
+<!-- ::: {.incremental} -->
+<!-- - once I asked someone;  -->
+
+<!-- - `can you explain me simply what is AI`? -->
+
+<!-- - the reply was:  -->
+
+<!-- - `a search for a  functions we know nothing about it`     -->
+
+<!-- - if we know or we suspect the  formulation of the function $f()$ we make `assumptions` otherwise we are in  machine learning territory -->
+<!-- ::: -->
+
+
+## Assumptions
+
+::: {.incremental}
+- an `assumption` is an axiomatic statement which need to be accepted for the model to work. 
+
+- the reasoning is that: `if the assumptions are correct then the model should be OK`
+
+-  mathematical `assumptions` also  help  `intepretation` of a model i.e.
+
+      -  a `linear` assumption for $f()$ is $\alpha+\beta_1 x_1 + \ldots + \beta_p x_p$
+      - `additive` assumption  for $f()$ is $\alpha+f_1(x_1) + \ldots + f_p(x_p)$
+:::
+
+## Assumption: linear model 
+
+```{r}
+#| echo: false 
+library(gamlss2)
+plot(ALP~ga, data=DA.train, xlab="gestational age")
+Lin_Mod <- gamlss2(ALP~ga, data=DA.train)
+ fv <- as.vector(fitted(Lin_Mod)[,1])
+  lines(fv~DA.train$ga, col="red")
+```
+
+## The Linear Model assumtions
+
+- $ALP \sim NO(\mu,\sigma)$
+
+- $\mu=\alpha +\beta \:  \text{ga}$
+
+- $\sigma$= constant
+
+- $ALP$ observations are independent
+
+## Assumption: additive model 
+
+```{r}
+#| echo: false 
+library(gamlss2)
+plot(ALP~ga, data=DA.train, xlab="gestational age")
+Add_Mod <- gamlss2(ALP~s(ga), data=DA.train)
+ fv <- as.vector(fitted(Add_Mod)[,1])
+  lines(fv[order(DA.train$ga)]~DA.train$ga[order(DA.train$ga)], col="red")
+```
+
+## Assumptions (2)
+
+::: {.incremental}
+- `explicit`  assumptions, usually mathematical, are easy to check
+
+- `implicit` assumptions (more difficult to check)
+
+- `incorrect` assumptions could lead to questionable scientific discoveries 
+
+-  we should check `explicit` assumptions using `diagnostic` tools
+
+- `algorithmic models` make mostly implicit assumptions about the function $f()$.
+:::
+
+
+## Algorithmic model
+
+::: {.incremental}
+- an `algorithmic model` is a step-by-step computational procedure designed to perform a task by systematically transforming inputs into outputs according to a defined set of rules.
+
+- no `explicit` assumptions for $f()$ are needed but a lot of `implicit` assumptions depending on the algorithm
+
+- algorithmic models (like mathematical models) can be deterministic or `stochastic` 
+:::
+
+
+## Stochastic model
+
+::: {.incremental}
+- a `stochastic` model is a (mathematical or algorithmic) model which incorporates randomness so its output is not completely predictable even with the same starting conditions.
+
+- stochastic regression models contain `probabilistic` assumptions on how the input-output model is generated.
+
+- the minimal assumption for a regression model is about the behaviour of the  `response`
+
+- in `linear` models $\textbf{y}=\textbf{X}\boldsymbol{\beta}+e$ where $e_i \sim N(\boldsymbol{0}, \sigma^2)$ is the classical stochastic model. 
+:::
+
+
+## Stochastic model (2)
+
+::: {.incremental}
+
+-  `not` all problems need a stochastic component 
+
+-  Stochastic models are often used because many natural, social, and physical systems have inherent variability.
+
+- a stochastic algorithmic model is often called a `machine learning` model
+:::
+
+
+## Machine Learning 
+
+::: {.incremental}
+
+- a typical supervised machine learning model has the form  $$Y= f(X)+ \epsilon$$ 
+where the error $\epsilon$ is assumed to be an `identical and independently distributed` random variable
+
+- implicitly  it is assumed that the error is a `symmetrical` random variable.
+
+:::
+
+## Machine Learning  (2)
+
+- as an `input-output` model can be written as 
+
+$$
+X  {\longrightarrow} \fbox{f()}  {\longrightarrow} E(Y) 
+$$
+ where the $E(y)$ is the `expected` value of $Y$ plus
+ 
+ 
+ - implicit assumptions for $f()$ and 
+ - explicit `symmetrical` and `independent` assumption for $\epsilon$ 
+ 
+
+## The Machine Learing assumtions
+
+- $ALP \sim NO(\mu,\sigma)$
+
+- $\mu= f(\text{ga})$
+
+- $\sigma$= constant
+
+- $ALP$ observations are independent
+
+
+## regression tree fit 
+```{r}
+#| echo: false
+# library(gamlss.add)
+# library(gamlss2)
+library(gamlss2)
+plot(ALP~ga, data=DA.train, xlab="gestational age")
+Reg_Tree <- gamlss2(ALP~tree(~ga)|., data=DA.train)
+ fv <- as.vector(fitted(Reg_Tree)[,1])
+lines(fv[order(DA.train$ga)]~DA.train$ga[order(DA.train$ga)], col="red")
+# library(rpart)
+# rtree <- rpart(ALP~ga, data=DA.train)
+# plot(ALP~ga, data=DA.train, xlab="gestational age")
+#  fv <- predict(rtree)
+#   lines(fv[order(DA.train$ga)]~DA.train$ga[order(DA.train$ga)], col="red")
+```
+
+
+## Black box  
+
+- algorithm models could be `black box`'s
+
+- they are two reasons for a black box's
+
+::: {.incremental}
+
+i)  the function $f()$ is too `complicated` to explain
+
+ii) there are `proprietary` reasons 
+
+- black box $\Longleftrightarrow$ `interpretable`$\simeq$`transparent`$\simeq$`explainable`$\simeq$`comprehensive` models
+
+- the `question` in hand should determine  whether the model should be  `interpretable`. 
+
+:::
+
+
+## neural network fit
+
+```{r}
+#| label: "neural network"
+#| echo: false
+library(gamlss2)
+NN_Mod <- gamlss2(ALP~n(~ga, size=10), data=DA.train)
+plot(ALP~ga, data=DA.train, xlab="gestational age")
+ fv <- as.vector(fitted(NN_Mod)[,1])
+lines(fv[order(DA.train$ga)]~DA.train$ga[order(DA.train$ga)], col="red")
+```
+
+## random forest fit
+
+```{r}
+#| label: "random forest"
+#| echo: false
+library(gamlss2)
+Ran_For <- gamlss2(ALP~cf(~ga), data=DA.train)
+plot(ALP~ga, data=DA.train, xlab="gestational age")
+ fv <- as.vector(fitted(Ran_For)[,1])
+lines(fv[order(DA.train$ga)]~DA.train$ga[order(DA.train$ga)], col="red")
+```
+
+
+
+## Black box  (2)
+
+::: {.incremental}
+
+- "Stop explaining black box machine learning models for `high stakes decisions` and use
+`interpretable` models instead"  [@rudin2019stop] 
+
+- the argument came from the fact that among all adequate model (the `Rashomon set`) few are `interpretable` [@rudin2024amazing],
+:::
+
+
+
+## Summary 
+
+- `data`
+
+- `assumptions`
+
+- `model` 
+
+    - `mathematical` or `algorithmic`
+    - `interpretable` or `black box`
+
+- How we can compare the `accurancy` between different models?
+
+- this is done usually using a `risk` function
+
+
+## Risk functions
+
+::: {.incremental}
+
+- A `risk` function measure the `accuracy` of the model. [it measure how accurate  $f()$ is for a specific risk function]
+
+-  a `risk` is defined as the expected loss $\ell$. That is, we define  the lost function  $\ell$ first as a function of the response  $Y$ and the explanatory variable $X$ and then we take  expecations:
+$$R(f) = \mathbb{E}_{X,Y} [ \ell(f(X), Y) ]$$
+    -$f()$ is the model,	
+:::
+
+## loss functions 
+
+
+- `squared` error :   $\sum_{i}^n (y_i - \hat{y_i})^2$
+
+- `absolute` error:   $\sum_{i}^n \left|y_i - \hat{y_i} \right|$
+
+- `information` based error:    -$\int_{-\infty}^\infty \log f(y_i, \hat{\theta}_i )$
+
+- risk functions could include  `penalty` terms
+
+
+- `empirical risk`: instead of taken expectation using the unknown "true` distribution we just average over the observations i.e. $\frac{1}{n}$ 
+
+
+## Empirical Risk 
+
+
+- the `likelihood function` is an empirical risk  
+
+- the evaluation of the empirical risk is more effective if it is done on `out of bag`, (OOB), or `test` data 
+
+- the square error and  absolue error risk functions tell us how `far` the $Y$ is from its estimated `expected value` $E(Y)$. They tell us `nothing` on how well other part of the distribution for $Y$ are fitted i.e. the tails
+
+- the `empirical risk` should be always  related  to the `question` in hand. 
+
+<!-- - similar value of different models risk functions from the same data set lead to the `Rashomon` effect    -->
+
+
+## comparing models
+
+'information` based criteria: AIC and BIC 
+```{r}
+#| label: "GAIC"
+GAIC(Lin_Mod,Add_Mod,Reg_Tree, NN_Mod, Ran_For)
+GAIC(Lin_Mod,Add_Mod,Reg_Tree, NN_Mod, Ran_For, k=log(dim(DA.train)[1]))
+```
+
+## degrees of freedom
+
+- the `degrees of freedom` of the model is a measure of model complexity 
+
+- for mathematical models the df's are the `number` of parameters fitted in the model 
+
+- for algorithmic models the df's are difficult to define 
+
+<!-- - a final model should be based on the principle of `parcimony` -->
+
+- what if we do not know the df's?
+
+## Mean Square error   
+
+- Mean Square Error  on `test` obervarions 
+
+```{r}
+#| label: "mean square error"
+pparlm <- predict(Lin_Mod, newdata=DA.test)
+pparad <- predict(Add_Mod, newdata=DA.test)
+ppartr <- predict(Reg_Tree, newdata=DA.test)
+ppaNN_Mod <- predict(NN_Mod, newdata=DA.test)
+ppaRan_For <- predict(Ran_For, newdata=DA.test)
+mselm <- sum((DA.test$ALP-pparlm[,1])^2)
+mselm <- mselm / dim(DA.test)[1]
+msead <- sum((DA.test$ALP-pparad[,1])^2)
+msead <- msead / dim(DA.test)[1]
+msetr <- sum((DA.test$ALP-ppartr[,1])^2)
+msetr <- msetr / dim(DA.test)[1]
+msenn <- sum((DA.test$ALP-ppaNN_Mod[,1])^2)
+msenn <- msenn / dim(DA.test)[1]
+msecf <- sum((DA.test$ALP-ppaRan_For[,1])^2)
+msecf <- msecf / dim(DA.test)[1]
+pmse=format(c(mselm, msead, msetr, msenn, msecf), digits=6)
+or <- order(pmse)
+BB=cbind(models= c("Lin_Mod", "Add_Mod", "Reg_Tree", "NN_Mod","Ran_For")[or], MSE=pmse[or])
+BB
+```
+
+- Mean Absolute Erroe on `test` obervarions 
+```{r}
+#| label: "mean absolute error"
+pparlm <- predict(Lin_Mod, newdata=DA.test)
+pparad <- predict(Add_Mod, newdata=DA.test)
+ppartr <- predict(Reg_Tree, newdata=DA.test)
+ppaNN_Mod <- predict(NN_Mod, newdata=DA.test)
+ppaRan_For <- predict(Ran_For, newdata=DA.test)
+maelm <- sum(abs(DA.test$ALP-pparlm[,1]))
+maelm <- maelm / dim(DA.test)[1]
+maead <- sum(abs(DA.test$ALP-pparad[,1]))
+maead <- maead / dim(DA.test)[1]
+maetr <- sum(abs(DA.test$ALP-ppartr[,1]))
+maetr <- maetr / dim(DA.test)[1]
+maenn <- sum(abs(DA.test$ALP-ppaNN_Mod[,1]))
+maenn <- maenn / dim(DA.test)[1]
+maecf <- sum(abs(DA.test$ALP-ppaRan_For[,1]))
+maecf <- maecf / dim(DA.test)[1]
+pmse=format(c(maelm, maead, maetr, maenn, maecf), digits=6)
+or <- order(pmse)
+BB=cbind(models= c("Lin_Mod", "Add_Mod", "Reg_Tree", "NN_Mod","Ran_For")[or], MAE=pmse[or])
+BB
+```
+
+## prediction deviance 
+
+deviance $-2 \log Likelihood$ on test observations 
+
+```{r}
+#| label: "preditive deviance"
+pparlm <- predict(Lin_Mod, newdata=DA.test)
+pparad <- predict(Add_Mod, newdata=DA.test)
+ppartr <- predict(Reg_Tree, newdata=DA.test)
+ppaNN_Mod <- predict(NN_Mod, newdata=DA.test)
+ppaRan_For <- predict(Ran_For, newdata=DA.test)
+
+pdevlm <- -2*Lin_Mod$family$logLik(DA.test$ALP, pparlm)
+pdevad <- -2*Lin_Mod$family$logLik(DA.test$ALP, pparad)
+pdevtr  <- -2*Lin_Mod$family$logLik(DA.test$ALP, ppartr)  
+pdevnn  <- -2*Lin_Mod$family$logLik(DA.test$ALP, ppaNN_Mod) 
+pdevcf  <- -2*Lin_Mod$family$logLik(DA.test$ALP, ppaRan_For) 
+
+pdev=format(c(pdevlm, pdevad, pdevtr, pdevnn, pdevcf), digits=7)
+or <- order(pdev)
+BB=cbind(models= c("Lin_Mod", "Add_Mod", "Reg_Tree", "NN_Mod","Ran_For")[or], pdeviance=pdev[or])
+BB
+# ,Add_Mod,tree, NN_Mod, Ran_For)
+# GAIC(Lin_Mod,Add_Mod,tree, rnn, Ran_For, k=log(dim(DA.train)[1]))
+```
+
+- in order to produce the predictive deviance results we assume that  the ditribution for the tresponse is `normal`. Is this a sensible assumption?
+
+## qq-plot of the prediction residuals 
+
+```{r}
+zscoreslm <- Lin_Mod$family$rqres(DA.test$ALP, pparad)
+library(gamlss.ggplots)
+resid_qqplot(resid= zscoreslm, title="residuals of the additive model")
+```
+
+## The centiles  of the "best" model 
+
+
+```{r}
+library(gamlss.ggplots)
+fitted_centiles(Add_Mod)
+```
+
+## Generalised Linear models
+
+- the mathematical model of @NelderWeddeburn72 dominated the 1980's 
+- as `input-output` model it can be written as 
+$$
+X  {\longrightarrow} \fbox{f()}  {\longrightarrow} E(Y) 
+$$
+where $f()= g(\eta=\textbf{X}\boldsymbol{\beta})$ and $g()$ is a `link` function to make sure that values of $\mu=E(Y)$ have the right range 
+
+## Generalised Linear models (2)
+
+ 
+\begin{split}
+\textbf{y}    &  \stackrel{\small{ind}}{\sim }  D( \boldsymbol{\mu},  \phi) \nonumber \\
+\mu(\boldsymbol{\eta}) &= \textbf{X}\boldsymbol{\beta} \nonumber \\
+ \end{split}
+where D() is a distribution belonging ot the `exponential family`
+
+      - normal, gamma, inverse Gaussian   
+      - Poisson, bimomial
+
+- there were two major problems  $\mu(\boldsymbol{\eta})$    
+
+## Problems with $\mu(\boldsymbol{\eta})$ 
+
+- $\mu(\boldsymbol{\eta})$ allows only `linear` effects  [for `non-linear` use  Generalised Additive Models, `GAM`'s @HastieTibshirani90
+
+- `interactions` between terms have to be declared explicitly but for large number of explanatory variables this could be difficult. 
+
+- some ML models  fit interactions as part of their algorithm i.e. regression trees, neural networks     
+
+## Problems with  $D( \boldsymbol{\mu},  \phi)$
+
+- exponential family has nice theoretical properties for the mean of $y$, $\left[ E(y) \right]$ 
+
+- if a second parameter $\phi$, exist it is treated as a `nuisance`
+
+- ignoring  $\phi$ we have problems with: 
+
+     - `heterogeity` and `over/under-dispersion`
+
+     - `skewness` and `kurtosis` (because  are fixed)
+
+- `distributional regression` (GAMLSS) can correct those problems
+
+
+## GAM fit 
+
+```{r}
+#| label: "fit GAM"
+#| echo: false
+#| results: hide 
+library(gamlss.ggplots)
+mga <- gamlss2(ALP~s(ga), data=DA.train, family=GA)
+fitted_centiles_legend(mga, cent=c(2, 10, 25, 50, 75, 90, 98))+xlab("gestetion age")
+```
+
+## GAM residuals
+
+```{r}
+#| label: "resid GAM"
+#| echo: false
+#| results: hide 
+library(gamlss.ggplots)
+resid_qqplot(mga)
+```
+
+## GAMLSS 
+
+@RigbyStasinopoulos05
+$$X  {\longrightarrow}  \fbox{$\boldsymbol{\theta}$()} {\longrightarrow} D(Y|\boldsymbol{\theta}(X)),
+$$  where $D(Y|\boldsymbol{\theta}(X))$ represents the `natural error` distribution of $Y$ (conditional on the $X$). The task of DR is to find 
+;
+
+- $\boldsymbol{\theta}(X)$ and $D(Y|\boldsymbol{\theta}(X))$ have to estimated
+
+- `Distributional Regression` 
+
+## GAMLSS fit 
+
+```{r}
+#| label: "fit GAMLSS"
+#| echo: false
+#| results: hide 
+library(gamlss.ggplots)
+lm5 <- gamlss2(ALP~s(ga)|s(ga)|s(ga)|s(ga), data=DA.train, family=BCTo)
+fitted_centiles_legend(lm5, cent=c(2, 10, 25, 50, 75, 90, 98))+xlab("gestetion age")
+```
+
+## GAMLSS residuals
+
+```{r}
+#| label: "resid GAMLSS"
+#| echo: false
+#| results: hide 
+library(gamlss.ggplots)
+resid_qqplot(lm5)
+```
+
+## Toxicity in USA Lakes 
+
+::: {layout-ncol="1," layout-nrow="1"}
+![USA lakes toxicity](USA-lakes.png){width="800" height="500"} 
+:::
+
+## Arcenic in EU soil
+
+::: {layout-ncol="1," layout-nrow="1"}
+![Arcenic EU](Arcenic_EU.png){width="800" height="400"} 
+:::
+
+
+## Polution in th Oceans
+
+::: {layout-ncol="1," layout-nrow="1"}
+![NSA](NASA.png){width="800" height="500"} 
+:::
+
+## Kings Colege data on pregnancy
+
+::: {layout-ncol="1," layout-nrow="1"}
+![All response variables](King-College.png){width="800" height="500"}
+:::
+
+## Conclusions
+
+ 
+- the `data`, the `model`, the `question` are interrelated, you can not consider one without the other in order to extract the right information.
+
+- if the `question` does not involve the mean of $Y$ a distributional regression seems more appropriate
+
+- distributional regression model could  answer `questions` that `ML` and `AI` can not  
+
+## Conclusions (2)
+
+- `interpretable` model are important for scientific progress and easier to check using `diagnostics` tools
+
+- distributional regressions allows the estimation of `exceedance probabilities` and more generally  `interval forecast` something that not all the classical ML model can do 
+
+- distributional regression can answer questions about all aspects of the behaviour of  $Y$
+
+## the team {.smaller}
+
+| working party          | current                | past                         |
+|:---------------------|:---------------------|:---------------------------|
+| `Gillian Heller`       | `Konstantinos Pateras` | Popi Akantziliotou,           |
+| `Fernanda De Bastiani` |  Paul Eilers , `Kevin Burke` | Vlasios Voudouris, Nadja Klein   |
+| `Thomas Kneib`         | `Nikos Kametas`        | Marco Enea, Nicoleta Mortan            |
+| `Achim Zeileis`        | Tim Cole             | Daniil Kiose, Florian Ziel                  |
+| `Andreas Mayr`         |  `Artur Fredrich`      | Dea-Jin Lee, Peru Muniain                  |
+| `Nicolaus Umlauf`      | `Luiz Nakamura`        | María Xosé Rodríguez-Álvarez |
+| `Reto Stauffer`        | `Elisa Van Eynde`      | Majid Djennad               |
+| `Robert Rigby`         | `Julian Merder`        | Nikos Georgikopoulos         |
+| `Mikis Stasinopoulos`  | Abu Hossain            | Raydonal Ospina, Fiona McElduff |
+
+
+## end
+
+[back to the index](https://mstasinopoulos.github.io/Porto_short_course/)
+
+::: {layout-ncol="3," layout-nrow="1"}
+![](book-1.png){width="300"} ![](BOOK-2.png){width="323"} ![](book3.png){width="333"} The Books
+:::
+
+
+## reference
+
+
