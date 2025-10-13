@@ -1,0 +1,415 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "GAMLSS talk for XVII MGEST-2025",
+    "section": "",
+    "text": "This website contain the talk given in October 2025 at Lavras - Brazil.\n\ntalk"
+  },
+  {
+    "objectID": "talk_2.html#indroduction",
+    "href": "talk_2.html#indroduction",
+    "title": "Regression Models",
+    "section": "Indroduction",
+    "text": "Indroduction\n\n\nmachine learning models as they stand, are not always suitable for environmental data\ngoodness of fit measure should represent more closely the question in hand\nInterpretation of the model is important for improvements in scientific knowledge\nthis talk is my personal opinion on how regression models should adapt for environmental data"
+  },
+  {
+    "objectID": "talk_2.html#data",
+    "href": "talk_2.html#data",
+    "title": "Regression Models",
+    "section": "Data",
+    "text": "Data\ndata; used to mean a file with a lot of;\n\n\nnumbers, (but data today could have)\ntext,\npixels, or\nany other file that containing information.\n\n\n\ndata analysis is the art of extraction information from the data.\nRegression model deal with tabular data"
+  },
+  {
+    "objectID": "talk_2.html#tabular-data",
+    "href": "talk_2.html#tabular-data",
+    "title": "Regression Models",
+    "section": "Tabular data",
+    "text": "Tabular data\n\n\n\nTable 1: The Table of Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nobs number\ny\nx1\nx2\nx3\n…\nxr-1\nxr\n\n\n\n\n1\ny1\nx11\nx12\nx13\n…\nx1r-1\nx1r\n\n\n2\ny2\nx21\nx22\nx23\n…\nx2r-1\nx2r\n\n\n3\ny3\nx31\nx32\nx33\n…\nx3r-1\nx3r\n\n\n…\n…\n…\n…\n…\n…\n…\n…\n\n\nn-1\nyn-1\nxn-11\nxn-12\nxn-12\n…\nxn-1r-1\nxn-1r\n\n\nn\nyn\nxn1\nxn2\nxn3\n…\nxnr-1\nxnr"
+  },
+  {
+    "objectID": "talk_2.html#data-1",
+    "href": "talk_2.html#data-1",
+    "title": "Regression Models",
+    "section": "Data",
+    "text": "Data\n\n\nThe size of observations \\(n\\) keeps growing over time\nthe size of the variables \\(r\\) is also increase\ntraditionally \\(n &gt; r\\) but now other situations are common\nthere is information in data before start modelling we need to explore (see the package gamlss.prepdata)\ndata partition helps the model building?"
+  },
+  {
+    "objectID": "talk_2.html#data-partition",
+    "href": "talk_2.html#data-partition",
+    "title": "Regression Models",
+    "section": "Data Partition",
+    "text": "Data Partition\n\ndata partition help with\n\nchecking for over-fitting\nhelping to improve inference by providing extra information about variations\n\nthere two types of partition\n\nsingle partition (holdout samples)\nmultiple partitions (bootstrapping, K-fold cross validation )"
+  },
+  {
+    "objectID": "talk_2.html#data-partition-2",
+    "href": "talk_2.html#data-partition-2",
+    "title": "Regression Models",
+    "section": "Data Partition (2)",
+    "text": "Data Partition (2)"
+  },
+  {
+    "objectID": "talk_2.html#examples-of-data",
+    "href": "talk_2.html#examples-of-data",
+    "title": "Regression Models",
+    "section": "Examples of data",
+    "text": "Examples of data\n\n\ntoxicity in USA lakes (Merder et al. 2023)\npollution in the oceans using satellite images (Merder et al. 2024)\narsenic in EU soil see (Fendrich et al. 2024)\nmonitor liver functions during pregnancy (Judah et al. 2025)\nphosphorus in the soil in EU (current work)"
+  },
+  {
+    "objectID": "talk_2.html#examples-liver-function",
+    "href": "talk_2.html#examples-liver-function",
+    "title": "Regression Models",
+    "section": "Examples; liver function",
+    "text": "Examples; liver function"
+  },
+  {
+    "objectID": "talk_2.html#example-liver-function-2",
+    "href": "talk_2.html#example-liver-function-2",
+    "title": "Regression Models",
+    "section": "Example; liver function 2",
+    "text": "Example; liver function 2\n\nthe response is ALP Alkaline Phosphatase an enzyme found throughout the body, but especially in: Liver, Bones, Kidneys, Intestines, Placenta (during pregnancy)\nthe x-var is gestation age\nTo analyse data we use models."
+  },
+  {
+    "objectID": "talk_2.html#models",
+    "href": "talk_2.html#models",
+    "title": "Regression Models",
+    "section": "Models",
+    "text": "Models\n\na model is a simplification of reality.\n\n\n\ntoy models, \nfashion models \nmathematical models.  where mathematical equations are used to describe reality."
+  },
+  {
+    "objectID": "talk_2.html#models-2",
+    "href": "talk_2.html#models-2",
+    "title": "Regression Models",
+    "section": "Models (2)",
+    "text": "Models (2)\n\n\n\nall models are wrong but some are useful.\n– George Box (1979)\n\nwhether a model is useful depends on the purpose of the study.\nis the model adequate to answer the question?"
+  },
+  {
+    "objectID": "talk_2.html#question",
+    "href": "talk_2.html#question",
+    "title": "Regression Models",
+    "section": "question",
+    "text": "question\n\n\nthe question is the hypothesis, the purpose of the study; It is what the researcher tries to understand and answer\nthe next question is:\ncan the data or the model answer the question in hand?\nif the answer is yes then how. Can be answered by regression?\nregression is an input-output model."
+  },
+  {
+    "objectID": "talk_2.html#input-output",
+    "href": "talk_2.html#input-output",
+    "title": "Regression Models",
+    "section": "Input-output",
+    "text": "Input-output\n\n\nwe have information on variable(s) \\(X\\), the input variables,\nand we want to use this information to say something about the variable(s) \\(Y\\) the output.\nInput-output model are supervised learning model (since a response variable exist)"
+  },
+  {
+    "objectID": "talk_2.html#input-output-2",
+    "href": "talk_2.html#input-output-2",
+    "title": "Regression Models",
+    "section": "Input-output (2)",
+    "text": "Input-output (2)\nBreiman (2003)\n\n\n\n\\[\nX  {\\longrightarrow}  \\fbox{NATURE} {\\longrightarrow} Y, \\ \\textit{(complex)}\n\\]\n\\[\nX  {\\longrightarrow}  \\fbox{Model} {\\longrightarrow} Y \\ \\textit{(simpler)}\n\\]\n\\[\nX  {\\longrightarrow} \\fbox{f()}  {\\longrightarrow} Y \\ \\textit{(mathematical model)}\n\\]\n\n\n\nthe task is to unmask the unknown function \\(f()\\).\na compete unspecified function lead to AI otherwise we rely on assumtions"
+  },
+  {
+    "objectID": "talk_2.html#assumptions",
+    "href": "talk_2.html#assumptions",
+    "title": "Regression Models",
+    "section": "Assumptions",
+    "text": "Assumptions\n\n\nan assumption is an axiomatic statement which need to be accepted for the model to work.\nthe reasoning is that: if the assumptions are correct then the model should be OK\nmathematical assumptions also help intepretation of a model i.e.\n\na linear assumption for \\(f()\\) is \\(\\alpha+\\beta_1 x_1 + \\ldots + \\beta_p x_p\\)\nadditive assumption for \\(f()\\) is \\(\\alpha+f_1(x_1) + \\ldots + f_p(x_p)\\)"
+  },
+  {
+    "objectID": "talk_2.html#assumption-linear-model",
+    "href": "talk_2.html#assumption-linear-model",
+    "title": "Regression Models",
+    "section": "Assumption: linear model",
+    "text": "Assumption: linear model\n\n\nGAMLSS-RS iteration  1: Global Deviance = 19556.8715 eps = 0.069510     \nGAMLSS-RS iteration  2: Global Deviance = 19556.8715 eps = 0.000000"
+  },
+  {
+    "objectID": "talk_2.html#the-linear-model-assumtions",
+    "href": "talk_2.html#the-linear-model-assumtions",
+    "title": "Regression Models",
+    "section": "The Linear Model assumtions",
+    "text": "The Linear Model assumtions\n\n\\(ALP \\sim NO(\\mu,\\sigma)\\)\n\\(\\mu=\\alpha +\\beta \\:  \\text{ga}\\)\n\\(\\sigma\\)= constant\n\\(ALP\\) observations are independent"
+  },
+  {
+    "objectID": "talk_2.html#assumption-additive-model",
+    "href": "talk_2.html#assumption-additive-model",
+    "title": "Regression Models",
+    "section": "Assumption: additive model",
+    "text": "Assumption: additive model\n\n\nGAMLSS-RS iteration  1: Global Deviance = 19305.9535 eps = 0.081448     \nGAMLSS-RS iteration  2: Global Deviance = 19304.412 eps = 0.000079     \nGAMLSS-RS iteration  3: Global Deviance = 19304.4115 eps = 0.000000"
+  },
+  {
+    "objectID": "talk_2.html#assumptions-2",
+    "href": "talk_2.html#assumptions-2",
+    "title": "Regression Models",
+    "section": "Assumptions (2)",
+    "text": "Assumptions (2)\n\n\nexplicit assumptions, usually mathematical, are easy to check\nimplicit assumptions (more difficult to check)\nincorrect assumptions could lead to questionable scientific discoveries\nwe should check explicit assumptions using diagnostic tools\nalgorithmic models make mostly implicit assumptions about the function \\(f()\\)."
+  },
+  {
+    "objectID": "talk_2.html#algorithmic-model",
+    "href": "talk_2.html#algorithmic-model",
+    "title": "Regression Models",
+    "section": "Algorithmic model",
+    "text": "Algorithmic model\n\n\nan algorithmic model is a step-by-step computational procedure designed to perform a task by systematically transforming inputs into outputs according to a defined set of rules.\nno explicit assumptions for \\(f()\\) are needed but a lot of implicit assumptions depending on the algorithm\nalgorithmic models (like mathematical models) can be deterministic or stochastic"
+  },
+  {
+    "objectID": "talk_2.html#stochastic-model",
+    "href": "talk_2.html#stochastic-model",
+    "title": "Regression Models",
+    "section": "Stochastic model",
+    "text": "Stochastic model\n\n\na stochastic model is a (mathematical or algorithmic) model which incorporates randomness so its output is not completely predictable even with the same starting conditions.\nstochastic regression models contain probabilistic assumptions on how the input-output model is generated.\nthe minimal assumption for a regression model is about the behaviour of the response\nin linear models \\(\\textbf{y}=\\textbf{X}\\boldsymbol{\\beta}+e\\) where \\(e_i \\sim N(\\boldsymbol{0}, \\sigma^2)\\) is the classical stochastic model."
+  },
+  {
+    "objectID": "talk_2.html#stochastic-model-2",
+    "href": "talk_2.html#stochastic-model-2",
+    "title": "Regression Models",
+    "section": "Stochastic model (2)",
+    "text": "Stochastic model (2)\n\n\nnot all problems need a stochastic component\nStochastic models are often used because many natural, social, and physical systems have inherent variability.\na stochastic algorithmic model is often called a machine learning model"
+  },
+  {
+    "objectID": "talk_2.html#machine-learning",
+    "href": "talk_2.html#machine-learning",
+    "title": "Regression Models",
+    "section": "Machine Learning",
+    "text": "Machine Learning\n\n\na typical supervised machine learning model has the form \\[Y= f(X)+ \\epsilon\\] where the error \\(\\epsilon\\) is assumed to be an identical and independently distributed random variable\nimplicitly it is assumed that the error is a symmetrical random variable."
+  },
+  {
+    "objectID": "talk_2.html#machine-learning-2",
+    "href": "talk_2.html#machine-learning-2",
+    "title": "Regression Models",
+    "section": "Machine Learning (2)",
+    "text": "Machine Learning (2)\n\nas an input-output model can be written as\n\n\\[\nX  {\\longrightarrow} \\fbox{f()}  {\\longrightarrow} E(Y)\n\\] where the \\(E(y)\\) is the expected value of \\(Y\\) plus\n\nimplicit assumptions for \\(f()\\) and\nexplicit symmetrical and independent assumption for \\(\\epsilon\\)"
+  },
+  {
+    "objectID": "talk_2.html#the-machine-learing-assumtions",
+    "href": "talk_2.html#the-machine-learing-assumtions",
+    "title": "Regression Models",
+    "section": "The Machine Learing assumtions",
+    "text": "The Machine Learing assumtions\n\n\\(ALP \\sim NO(\\mu,\\sigma)\\)\n\\(\\mu= f(\\text{ga})\\)\n\\(\\sigma\\)= constant\n\\(ALP\\) observations are independent"
+  },
+  {
+    "objectID": "talk_2.html#regression-tree-fit",
+    "href": "talk_2.html#regression-tree-fit",
+    "title": "Regression Models",
+    "section": "regression tree fit",
+    "text": "regression tree fit\n\n\nGAMLSS-RS iteration  1: Global Deviance = 18752.8733 eps = 0.107763     \nGAMLSS-RS iteration  2: Global Deviance = 18680.5714 eps = 0.003855     \nGAMLSS-RS iteration  3: Global Deviance = 18680.5446 eps = 0.000001"
+  },
+  {
+    "objectID": "talk_2.html#black-box",
+    "href": "talk_2.html#black-box",
+    "title": "Regression Models",
+    "section": "Black box",
+    "text": "Black box\n\nalgorithm models could be black box’s\nthey are two reasons for a black box’s\n\n\n\nthe function \\(f()\\) is too complicated to explain\nthere are proprietary reasons\n\n\nblack box \\(\\Longleftrightarrow\\) interpretable\\(\\simeq\\)transparent\\(\\simeq\\)explainable\\(\\simeq\\)comprehensive models\nthe question in hand should determine whether the model should be interpretable."
+  },
+  {
+    "objectID": "talk_2.html#neural-network-fit",
+    "href": "talk_2.html#neural-network-fit",
+    "title": "Regression Models",
+    "section": "neural network fit",
+    "text": "neural network fit\n\n\nGAMLSS-RS iteration  1: Global Deviance = 19395.3504 eps = 0.077195     \nGAMLSS-RS iteration  2: Global Deviance = 19342.6355 eps = 0.002717     \nGAMLSS-RS iteration  3: Global Deviance = 19341.3729 eps = 0.000065     \nGAMLSS-RS iteration  4: Global Deviance = 19341.3725 eps = 0.000000"
+  },
+  {
+    "objectID": "talk_2.html#random-forest-fit",
+    "href": "talk_2.html#random-forest-fit",
+    "title": "Regression Models",
+    "section": "random forest fit",
+    "text": "random forest fit\n\n\nGAMLSS-RS iteration  1: Global Deviance = 19296.2132 eps = 0.081912     \nGAMLSS-RS iteration  2: Global Deviance = 19294.2941 eps = 0.000099     \nGAMLSS-RS iteration  3: Global Deviance = 19294.2941 eps = 0.000000"
+  },
+  {
+    "objectID": "talk_2.html#black-box-2",
+    "href": "talk_2.html#black-box-2",
+    "title": "Regression Models",
+    "section": "Black box (2)",
+    "text": "Black box (2)\n\n\n“Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead” (Rudin 2019)\nthe argument came from the fact that among all adequate model (the Rashomon set) few are interpretable (Rudin et al. 2024),"
+  },
+  {
+    "objectID": "talk_2.html#summary",
+    "href": "talk_2.html#summary",
+    "title": "Regression Models",
+    "section": "Summary",
+    "text": "Summary\n\ndata\nassumptions\nmodel\n\nmathematical or algorithmic\ninterpretable or black box\n\nHow we can compare the accurancy between different models?\nthis is done usually using a risk function"
+  },
+  {
+    "objectID": "talk_2.html#risk-functions",
+    "href": "talk_2.html#risk-functions",
+    "title": "Regression Models",
+    "section": "Risk functions",
+    "text": "Risk functions\n\n\nA risk function measure the accuracy of the model. [it measure how accurate \\(f()\\) is for a specific risk function]\na risk is defined as the expected loss \\(\\ell\\). That is, we define the lost function \\(\\ell\\) first as a function of the response \\(Y\\) and the explanatory variable \\(X\\) and then we take expecations: \\[R(f) = \\mathbb{E}_{X,Y} [ \\ell(f(X), Y) ]\\] -\\(f()\\) is the model,"
+  },
+  {
+    "objectID": "talk_2.html#loss-functions",
+    "href": "talk_2.html#loss-functions",
+    "title": "Regression Models",
+    "section": "loss functions",
+    "text": "loss functions\n\nsquared error : \\(\\sum_{i}^n (y_i - \\hat{y_i})^2\\)\nabsolute error: \\(\\sum_{i}^n \\left|y_i - \\hat{y_i} \\right|\\)\ninformation based error: -\\(\\int_{-\\infty}^\\infty \\log f(y_i, \\hat{\\theta}_i )\\)\nrisk functions could include penalty terms\nempirical risk: instead of taken expectation using the unknown “true` distribution we just average over the observations i.e. \\(\\frac{1}{n}\\)"
+  },
+  {
+    "objectID": "talk_2.html#empirical-risk",
+    "href": "talk_2.html#empirical-risk",
+    "title": "Regression Models",
+    "section": "Empirical Risk",
+    "text": "Empirical Risk\n\nthe likelihood function is an empirical risk\nthe evaluation of the empirical risk is more effective if it is done on out of bag, (OOB), or test data\nthe square error and absolue error risk functions tell us how far the \\(Y\\) is from its estimated expected value \\(E(Y)\\). They tell us nothing on how well other part of the distribution for \\(Y\\) are fitted i.e. the tails\nthe empirical risk should be always related to the question in hand."
+  },
+  {
+    "objectID": "talk_2.html#comparing-models",
+    "href": "talk_2.html#comparing-models",
+    "title": "Regression Models",
+    "section": "comparing models",
+    "text": "comparing models\n’information` based criteria: AIC and BIC\n\n\n              AIC         df\nReg_Tree 18704.54  12.000000\nAdd_Mod  19315.91   5.749771\nNN_Mod   19407.37  33.000000\nRan_For  19498.29 102.000000\nLin_Mod  19562.87   3.000000\n\n\n              AIC         df\nReg_Tree 18772.05  12.000000\nAdd_Mod  19348.26   5.749771\nLin_Mod  19579.75   3.000000\nNN_Mod   19593.02  33.000000\nRan_For  20072.10 102.000000"
+  },
+  {
+    "objectID": "talk_2.html#degrees-of-freedom",
+    "href": "talk_2.html#degrees-of-freedom",
+    "title": "Regression Models",
+    "section": "degrees of freedom",
+    "text": "degrees of freedom\n\nthe degrees of freedom of the model is a measure of model complexity\nfor mathematical models the df’s are the number of parameters fitted in the model\nfor algorithmic models the df’s are difficult to define\n\n\n\nwhat if we do not know the df’s?"
+  },
+  {
+    "objectID": "talk_2.html#mean-square-error",
+    "href": "talk_2.html#mean-square-error",
+    "title": "Regression Models",
+    "section": "Mean Square error",
+    "text": "Mean Square error\n\nMean Square Error on test obervarions\n\n\n\n     models     MSE      \n[1,] \"Add_Mod\"  \"726.698\"\n[2,] \"NN_Mod\"   \"728.525\"\n[3,] \"Ran_For\"  \"730.387\"\n[4,] \"Reg_Tree\" \"738.687\"\n[5,] \"Lin_Mod\"  \"796.054\"\n\n\n\nMean Absolute Erroe on test obervarions\n\n\n\n     models     MAE      \n[1,] \"Add_Mod\"  \"18.9538\"\n[2,] \"Ran_For\"  \"19.0120\"\n[3,] \"NN_Mod\"   \"19.0525\"\n[4,] \"Reg_Tree\" \"19.0789\"\n[5,] \"Lin_Mod\"  \"20.4588\""
+  },
+  {
+    "objectID": "talk_2.html#prediction-deviance",
+    "href": "talk_2.html#prediction-deviance",
+    "title": "Regression Models",
+    "section": "prediction deviance",
+    "text": "prediction deviance\ndeviance \\(-2 \\log Likelihood\\) on test observations\n\n\n     models     pdeviance \n[1,] \"Reg_Tree\" \"12518.98\"\n[2,] \"Add_Mod\"  \"12904.79\"\n[3,] \"NN_Mod\"   \"12908.19\"\n[4,] \"Ran_For\"  \"12911.92\"\n[5,] \"Lin_Mod\"  \"13029.86\"\n\n\n\nin order to produce the predictive deviance results we assume that the ditribution for the tresponse is normal. Is this a sensible assumption?"
+  },
+  {
+    "objectID": "talk_2.html#qq-plot-of-the-prediction-residuals",
+    "href": "talk_2.html#qq-plot-of-the-prediction-residuals",
+    "title": "Regression Models",
+    "section": "qq-plot of the prediction residuals",
+    "text": "qq-plot of the prediction residuals"
+  },
+  {
+    "objectID": "talk_2.html#the-centiles-of-the-best-model",
+    "href": "talk_2.html#the-centiles-of-the-best-model",
+    "title": "Regression Models",
+    "section": "The centiles of the “best” model",
+    "text": "The centiles of the “best” model"
+  },
+  {
+    "objectID": "talk_2.html#generalised-linear-models",
+    "href": "talk_2.html#generalised-linear-models",
+    "title": "Regression Models",
+    "section": "Generalised Linear models",
+    "text": "Generalised Linear models\n\nthe mathematical model of Nelder and Wedderburn (1972) dominated the 1980’s\nas input-output model it can be written as \\[\nX  {\\longrightarrow} \\fbox{f()}  {\\longrightarrow} E(Y)\n\\] where \\(f()= g(\\eta=\\textbf{X}\\boldsymbol{\\beta})\\) and \\(g()\\) is a link function to make sure that values of \\(\\mu=E(Y)\\) have the right range"
+  },
+  {
+    "objectID": "talk_2.html#generalised-linear-models-2",
+    "href": "talk_2.html#generalised-linear-models-2",
+    "title": "Regression Models",
+    "section": "Generalised Linear models (2)",
+    "text": "Generalised Linear models (2)\n\\[\\begin{split}\n\\textbf{y}    &  \\stackrel{\\small{ind}}{\\sim }  D( \\boldsymbol{\\mu},  \\phi) \\nonumber \\\\\n\\mu(\\boldsymbol{\\eta}) &= \\textbf{X}\\boldsymbol{\\beta} \\nonumber \\\\\n\\end{split}\\]\nwhere D() is a distribution belonging ot the exponential family\n  - normal, gamma, inverse Gaussian   \n  - Poisson, bimomial\n\nthere were two major problems \\(\\mu(\\boldsymbol{\\eta})\\)"
+  },
+  {
+    "objectID": "talk_2.html#problems-with-muboldsymboleta",
+    "href": "talk_2.html#problems-with-muboldsymboleta",
+    "title": "Regression Models",
+    "section": "Problems with \\(\\mu(\\boldsymbol{\\eta})\\)",
+    "text": "Problems with \\(\\mu(\\boldsymbol{\\eta})\\)\n\n\\(\\mu(\\boldsymbol{\\eta})\\) allows only linear effects [for non-linear use Generalised Additive Models, GAM’s Hastie and Tibshirani (1990)\ninteractions between terms have to be declared explicitly but for large number of explanatory variables this could be difficult.\nsome ML models fit interactions as part of their algorithm i.e. regression trees, neural networks"
+  },
+  {
+    "objectID": "talk_2.html#problems-with-d-boldsymbolmu-phi",
+    "href": "talk_2.html#problems-with-d-boldsymbolmu-phi",
+    "title": "Regression Models",
+    "section": "Problems with \\(D( \\boldsymbol{\\mu},  \\phi)\\)",
+    "text": "Problems with \\(D( \\boldsymbol{\\mu},  \\phi)\\)\n\nexponential family has nice theoretical properties for the mean of \\(y\\), \\(\\left[ E(y) \\right]\\)\nif a second parameter \\(\\phi\\), exist it is treated as a nuisance\nignoring \\(\\phi\\) we have problems with:\n\nheterogeity and over/under-dispersion\nskewness and kurtosis (because are fixed)\n\ndistributional regression (GAMLSS) can correct those problems"
+  },
+  {
+    "objectID": "talk_2.html#gam-fit",
+    "href": "talk_2.html#gam-fit",
+    "title": "Regression Models",
+    "section": "GAM fit",
+    "text": "GAM fit"
+  },
+  {
+    "objectID": "talk_2.html#gam-residuals",
+    "href": "talk_2.html#gam-residuals",
+    "title": "Regression Models",
+    "section": "GAM residuals",
+    "text": "GAM residuals"
+  },
+  {
+    "objectID": "talk_2.html#gamlss",
+    "href": "talk_2.html#gamlss",
+    "title": "Regression Models",
+    "section": "GAMLSS",
+    "text": "GAMLSS\nRigby and Stasinopoulos (2005) \\[X  {\\longrightarrow}  \\fbox{$\\boldsymbol{\\theta}$()} {\\longrightarrow} D(Y|\\boldsymbol{\\theta}(X)),\n\\] where \\(D(Y|\\boldsymbol{\\theta}(X))\\) represents the natural error distribution of \\(Y\\) (conditional on the \\(X\\)). The task of DR is to find ;\n\n\\(\\boldsymbol{\\theta}(X)\\) and \\(D(Y|\\boldsymbol{\\theta}(X))\\) have to estimated\nDistributional Regression"
+  },
+  {
+    "objectID": "talk_2.html#gamlss-fit",
+    "href": "talk_2.html#gamlss-fit",
+    "title": "Regression Models",
+    "section": "GAMLSS fit",
+    "text": "GAMLSS fit"
+  },
+  {
+    "objectID": "talk_2.html#gamlss-residuals",
+    "href": "talk_2.html#gamlss-residuals",
+    "title": "Regression Models",
+    "section": "GAMLSS residuals",
+    "text": "GAMLSS residuals"
+  },
+  {
+    "objectID": "talk_2.html#toxicity-in-usa-lakes",
+    "href": "talk_2.html#toxicity-in-usa-lakes",
+    "title": "Regression Models",
+    "section": "Toxicity in USA Lakes",
+    "text": "Toxicity in USA Lakes\n\n\n\n\n\n\n\n\n\nUSA lakes toxicity"
+  },
+  {
+    "objectID": "talk_2.html#arcenic-in-eu-soil",
+    "href": "talk_2.html#arcenic-in-eu-soil",
+    "title": "Regression Models",
+    "section": "Arcenic in EU soil",
+    "text": "Arcenic in EU soil\n\n\n\n\n\n\n\n\n\nArcenic EU"
+  },
+  {
+    "objectID": "talk_2.html#polution-in-th-oceans",
+    "href": "talk_2.html#polution-in-th-oceans",
+    "title": "Regression Models",
+    "section": "Polution in th Oceans",
+    "text": "Polution in th Oceans\n\n\n\n\n\n\n\n\n\nNSA"
+  },
+  {
+    "objectID": "talk_2.html#kings-colege-data-on-pregnancy",
+    "href": "talk_2.html#kings-colege-data-on-pregnancy",
+    "title": "Regression Models",
+    "section": "Kings Colege data on pregnancy",
+    "text": "Kings Colege data on pregnancy\n\n\n\n\n\n\n\n\n\nAll response variables"
+  },
+  {
+    "objectID": "talk_2.html#conclusions",
+    "href": "talk_2.html#conclusions",
+    "title": "Regression Models",
+    "section": "Conclusions",
+    "text": "Conclusions\n\nthe data, the model, the question are interrelated, you can not consider one without the other in order to extract the right information.\nif the question does not involve the mean of \\(Y\\) a distributional regression seems more appropriate\ndistributional regression model could answer questions that ML and AI can not"
+  },
+  {
+    "objectID": "talk_2.html#conclusions-2",
+    "href": "talk_2.html#conclusions-2",
+    "title": "Regression Models",
+    "section": "Conclusions (2)",
+    "text": "Conclusions (2)\n\ninterpretable model are important for scientific progress and easier to check using diagnostics tools\ndistributional regressions allows the estimation of exceedance probabilities and more generally interval forecast something that not all the classical ML model can do\ndistributional regression can answer questions about all aspects of the behaviour of \\(Y\\)"
+  },
+  {
+    "objectID": "talk_2.html#the-team",
+    "href": "talk_2.html#the-team",
+    "title": "Regression Models",
+    "section": "the team",
+    "text": "the team\n\n\n\n\n\n\n\n\nworking party\ncurrent\npast\n\n\n\n\nGillian Heller\nKonstantinos Pateras\nPopi Akantziliotou,\n\n\nFernanda De Bastiani\nPaul Eilers , Kevin Burke\nVlasios Voudouris, Nadja Klein\n\n\nThomas Kneib\nNikos Kametas\nMarco Enea, Nicoleta Mortan\n\n\nAchim Zeileis\nTim Cole\nDaniil Kiose, Florian Ziel\n\n\nAndreas Mayr\nArtur Fredrich\nDea-Jin Lee, Peru Muniain\n\n\nNicolaus Umlauf\nLuiz Nakamura\nMaría Xosé Rodríguez-Álvarez\n\n\nReto Stauffer\nElisa Van Eynde\nMajid Djennad\n\n\nRobert Rigby\nJulian Merder\nNikos Georgikopoulos\n\n\nMikis Stasinopoulos\nAbu Hossain\nRaydonal Ospina, Fiona McElduff"
+  },
+  {
+    "objectID": "talk_2.html#end",
+    "href": "talk_2.html#end",
+    "title": "Regression Models",
+    "section": "end",
+    "text": "end\nback to the index\n\n\n\n\n\n\n   The Books"
+  },
+  {
+    "objectID": "talk_2.html#reference",
+    "href": "talk_2.html#reference",
+    "title": "Regression Models",
+    "section": "reference",
+    "text": "reference\n\n\n\n\nwww.gamlss.com\n\n\n\n\nBox, G. E. P. 1979. “Robustness in the Strategy of Scientific Model Building.” Robustness in Statistics 1: 201–36.\n\n\nBreiman, Leo. 2003. “Statistical Modeling: The Two Cultures.” Quality Control and Applied Statistics 48 (1): 81–82.\n\n\nFendrich, Arthur Nicolaus, Elise Van Eynde, Dimitrios M Stasinopoulos, Robert A Rigby, Felipe Yunta Mezquita, and Panos Panagos. 2024. “Modeling Arsenic in European Topsoils with a Coupled Semiparametric (GAMLSS-RF) Model for Censored Data.” Environment International 185: 108544.\n\n\nHastie, T. J., and R. J. Tibshirani. 1990. Generalized Additive Models. London: Chapman & Hall.\n\n\nJudah, Hannah R, Robert A Rigby, Mikis D Stasinopoulos, Konstantinos Pateras, Mussarat N Rahim, Michael A Heneghan, Kypros H Nicolaides, and Nikos A Kametas. 2025. “Reference Ranges for Liver Function Tests in Pregnancy Controlling for Maternal Characteristics.” American Journal of Obstetrics and Gynecology.\n\n\nMerder, Julian, Ted Harris, Gang Zhao, Dimitrios M Stasinopoulos, Robert A Rigby, and Anna M Michalak. 2023. “Geographic Redistribution of Microcystin Hotspots in Response to Climate Warming.” Nature Water 1 (10): 844–54.\n\n\nMerder, Julian, Gang Zhao, Nima Pahlevan, Robert A Rigby, Dimitrios M Stasinopoulos, and Anna M Michalak. 2024. “A Novel Algorithm for Ocean Chlorophyll-a Concentration Using MODIS Aqua Data.” ISPRS Journal of Photogrammetry and Remote Sensing 210: 198–211.\n\n\nNelder, J. A., and R. W. M. Wedderburn. 1972. “Generalized Linear Models.” Journal of the Royal Statistical Society: Series A 135: 370–84.\n\n\nRigby, R. A., and D. M. Stasinopoulos. 2005. “Generalized Additive Models for Location, Scale and Shape (with Discussion).” Applied Statistics 54: 507–54.\n\n\nRudin, Cynthia. 2019. “Stop Explaining Black Box Machine Learning Models for High Stakes Decisions and Use Interpretable Models Instead.” Nature Machine Intelligence 1 (5): 206–15.\n\n\nRudin, Cynthia, Chudi Zhong, Lesia Semenova, Margo Seltzer, Ronald Parr, Jiachang Liu, Srikar Katta, Jon Donnelly, Harry Chen, and Zachery Boner. 2024. “Amazing Things Come from Having Many Good Models.” arXiv Preprint arXiv:2407.04846."
+  }
+]

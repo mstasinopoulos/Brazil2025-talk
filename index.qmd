@@ -1,0 +1,9 @@
+---
+title: "GAMLSS talk for XVII MGEST-2025"
+author:
+  - Mikis Stasinopoulos
+---
+
+This website contain the talk given in October 2025 at Lavras - Brazil.
+
+-   [talk](talk_2.qmd)
