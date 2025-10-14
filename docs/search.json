@@ -59,8 +59,8 @@
     "objectID": "talk_2.html#examples-liver-function",
     "href": "talk_2.html#examples-liver-function",
     "title": "Regression Models",
-    "section": "Examples; liver function",
-    "text": "Examples; liver function"
+    "section": "Examples liver function",
+    "text": "Examples liver function"
   },
   {
     "objectID": "talk_2.html#example-liver-function-2",
@@ -88,7 +88,7 @@
     "href": "talk_2.html#question",
     "title": "Regression Models",
     "section": "question",
-    "text": "question\n\n\nthe question is the hypothesis, the purpose of the study; It is what the researcher tries to understand and answer\nthe next question is:\ncan the data or the model answer the question in hand?\nif the answer is yes then how. Can be answered by regression?\nregression is an input-output model."
+    "text": "question\n\n\nthe question is the hypothesis, the purpose of the study; It is what the researcher tries to understand and answer\nthe next question is:\ncan the data or the model answer the question in hand?\nif the answer is yes then how.\ncan be answered by regression?\nregression is an input-output model."
   },
   {
     "objectID": "talk_2.html#input-output",
@@ -165,21 +165,21 @@
     "href": "talk_2.html#machine-learning",
     "title": "Regression Models",
     "section": "Machine Learning",
-    "text": "Machine Learning\n\n\na typical supervised machine learning model has the form \\[Y= f(X)+ \\epsilon\\] where the error \\(\\epsilon\\) is assumed to be an identical and independently distributed random variable\nimplicitly it is assumed that the error is a symmetrical random variable."
+    "text": "Machine Learning\n\n\na typical supervised machine learning model has the form \\[Y= g(X)+ \\epsilon\\] where the error \\(\\epsilon\\) is assumed to be an identical and independently distributed random variable\nimplicitly it is assumed that the error is a symmetrical random variable."
   },
   {
     "objectID": "talk_2.html#machine-learning-2",
     "href": "talk_2.html#machine-learning-2",
     "title": "Regression Models",
     "section": "Machine Learning (2)",
-    "text": "Machine Learning (2)\n\nas an input-output model can be written as\n\n\\[\nX  {\\longrightarrow} \\fbox{f()}  {\\longrightarrow} E(Y)\n\\] where the \\(E(y)\\) is the expected value of \\(Y\\) plus\n\nimplicit assumptions for \\(f()\\) and\nexplicit symmetrical and independent assumption for \\(\\epsilon\\)"
+    "text": "Machine Learning (2)\n\nas an input-output model can be written as\n\n\\[\nX  {\\longrightarrow} \\fbox{f()}  {\\longrightarrow} E(Y)\n\\] where the \\(E(y)\\) is the expected value of \\(Y\\) plus\n\nimplicit assumptions for \\(f()\\) and\nexplicit symmetrical and independent assumption for \\(\\epsilon\\)\nonly the mean is modelled"
   },
   {
     "objectID": "talk_2.html#the-machine-learing-assumtions",
     "href": "talk_2.html#the-machine-learing-assumtions",
     "title": "Regression Models",
     "section": "The Machine Learing assumtions",
-    "text": "The Machine Learing assumtions\n\n\\(ALP \\sim NO(\\mu,\\sigma)\\)\n\\(\\mu= f(\\text{ga})\\)\n\\(\\sigma\\)= constant\n\\(ALP\\) observations are independent"
+    "text": "The Machine Learing assumtions\n\n\\(ALP \\sim NO(\\mu,\\sigma)\\)\n\\(\\mu= f(\\text{ga})\\)\n\\(\\sigma\\)= constant\n\\(ALP\\) observations are independent\nall are implicit assumptions that some machine learners forget or do not bother to tell"
   },
   {
     "objectID": "talk_2.html#regression-tree-fit",
@@ -193,7 +193,7 @@
     "href": "talk_2.html#black-box",
     "title": "Regression Models",
     "section": "Black box",
-    "text": "Black box\n\nalgorithm models could be black box’s\nthey are two reasons for a black box’s\n\n\n\nthe function \\(f()\\) is too complicated to explain\nthere are proprietary reasons\n\n\nblack box \\(\\Longleftrightarrow\\) interpretable\\(\\simeq\\)transparent\\(\\simeq\\)explainable\\(\\simeq\\)comprehensive models\nthe question in hand should determine whether the model should be interpretable."
+    "text": "Black box\n\nalgorithm models could be black box’s\nthey are two main reasons for a black box\n\n\n\nthe function \\(f()\\) is too complicated to explain\nthere are proprietary reasons\n\n\nblack box \\(\\stackrel{\\small{against}}{\\Longleftrightarrow}\\) interpretable\ntransparent, explainable, comprehensive models\nthe question in hand should determine whether the model should be interpretable."
   },
   {
     "objectID": "talk_2.html#neural-network-fit",
@@ -214,7 +214,7 @@
     "href": "talk_2.html#black-box-2",
     "title": "Regression Models",
     "section": "Black box (2)",
-    "text": "Black box (2)\n\n\n“Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead” (Rudin 2019)\nthe argument came from the fact that among all adequate model (the Rashomon set) few are interpretable (Rudin et al. 2024),"
+    "text": "Black box (2)\n\n\n“Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead” (Rudin 2019)\nthe argument came from the fact that among all adequate models (the Rashomon set) few are interpretable (Rudin et al. 2024)"
   },
   {
     "objectID": "talk_2.html#summary",
@@ -228,28 +228,28 @@
     "href": "talk_2.html#risk-functions",
     "title": "Regression Models",
     "section": "Risk functions",
-    "text": "Risk functions\n\n\nA risk function measure the accuracy of the model. [it measure how accurate \\(f()\\) is for a specific risk function]\na risk is defined as the expected loss \\(\\ell\\). That is, we define the lost function \\(\\ell\\) first as a function of the response \\(Y\\) and the explanatory variable \\(X\\) and then we take expecations: \\[R(f) = \\mathbb{E}_{X,Y} [ \\ell(f(X), Y) ]\\] -\\(f()\\) is the model,"
+    "text": "Risk functions\n\n\nA risk function measure the accuracy of the model. [it measure how accurate \\(f()\\) is for a specific risk function]\na risk is defined as the expected loss \\(\\ell\\). That is, we define a lost function \\(\\ell\\) first as a function of the response \\(Y\\) and the explanatory variable \\(X\\) and then we take expectations: \\[R(f) = \\mathbb{E}_{X,Y} [ \\ell(g(X), Y) ]\\] -\\(g()\\) is the model,"
   },
   {
     "objectID": "talk_2.html#loss-functions",
     "href": "talk_2.html#loss-functions",
     "title": "Regression Models",
     "section": "loss functions",
-    "text": "loss functions\n\nsquared error : \\(\\sum_{i}^n (y_i - \\hat{y_i})^2\\)\nabsolute error: \\(\\sum_{i}^n \\left|y_i - \\hat{y_i} \\right|\\)\ninformation based error: -\\(\\int_{-\\infty}^\\infty \\log f(y_i, \\hat{\\theta}_i )\\)\nrisk functions could include penalty terms\nempirical risk: instead of taken expectation using the unknown “true` distribution we just average over the observations i.e. \\(\\frac{1}{n}\\)"
+    "text": "loss functions\n\nsquared error : \\((y_{true} - y_{fitted})^2\\)\nabsolute error: \\(\\left|y_{true} - y_{fitted} \\right|\\)\ninformation based error: \\(- \\int_{-\\infty}^\\infty f_{true}(y|x) \\log f_{fitted}[y, \\theta(x) ] dy\\)\nrisk functions could include penalty terms\nempirical risk: instead of taken expectation using the unknown true distribution we just average over the observations i.e. \\(\\frac{1}{n} \\sum_{i}^{n} (y_{true,i} - y_{fitted,i})^2\\)"
   },
   {
     "objectID": "talk_2.html#empirical-risk",
     "href": "talk_2.html#empirical-risk",
     "title": "Regression Models",
     "section": "Empirical Risk",
-    "text": "Empirical Risk\n\nthe likelihood function is an empirical risk\nthe evaluation of the empirical risk is more effective if it is done on out of bag, (OOB), or test data\nthe square error and absolue error risk functions tell us how far the \\(Y\\) is from its estimated expected value \\(E(Y)\\). They tell us nothing on how well other part of the distribution for \\(Y\\) are fitted i.e. the tails\nthe empirical risk should be always related to the question in hand."
+    "text": "Empirical Risk\n\nthe empirical risk is the log likelihood for information based measure\nthe evaluation of the empirical risk is more effective if it is done on out of bag data, or test data\nthe square error and absolute error risk functions tell us how far the \\(Y\\) is from its estimated expected value \\(E(Y)\\). They tell us nothing on how well other part of the distribution for \\(Y\\) are fitted i.e. the tails\nthe empirical risk should be always related to the question in hand."
   },
   {
     "objectID": "talk_2.html#comparing-models",
     "href": "talk_2.html#comparing-models",
     "title": "Regression Models",
     "section": "comparing models",
-    "text": "comparing models\n’information` based criteria: AIC and BIC\n\n\n              AIC         df\nReg_Tree 18704.54  12.000000\nAdd_Mod  19315.91   5.749771\nNN_Mod   19407.37  33.000000\nRan_For  19498.29 102.000000\nLin_Mod  19562.87   3.000000\n\n\n              AIC         df\nReg_Tree 18772.05  12.000000\nAdd_Mod  19348.26   5.749771\nLin_Mod  19579.75   3.000000\nNN_Mod   19593.02  33.000000\nRan_For  20072.10 102.000000"
+    "text": "comparing models\ninformation based criteria: AIC and BIC\n\n\n              AIC         df\nReg_Tree 18704.54  12.000000\nAdd_Mod  19315.91   5.749771\nNN_Mod   19407.37  33.000000\nRan_For  19498.29 102.000000\nLin_Mod  19562.87   3.000000\n\n\n              AIC         df\nReg_Tree 18772.05  12.000000\nAdd_Mod  19348.26   5.749771\nLin_Mod  19579.75   3.000000\nNN_Mod   19593.02  33.000000\nRan_For  20072.10 102.000000"
   },
   {
     "objectID": "talk_2.html#degrees-of-freedom",
@@ -263,14 +263,14 @@
     "href": "talk_2.html#mean-square-error",
     "title": "Regression Models",
     "section": "Mean Square error",
-    "text": "Mean Square error\n\nMean Square Error on test obervarions\n\n\n\n     models     MSE      \n[1,] \"Add_Mod\"  \"726.698\"\n[2,] \"NN_Mod\"   \"728.525\"\n[3,] \"Ran_For\"  \"730.387\"\n[4,] \"Reg_Tree\" \"738.687\"\n[5,] \"Lin_Mod\"  \"796.054\"\n\n\n\nMean Absolute Erroe on test obervarions\n\n\n\n     models     MAE      \n[1,] \"Add_Mod\"  \"18.9538\"\n[2,] \"Ran_For\"  \"19.0120\"\n[3,] \"NN_Mod\"   \"19.0525\"\n[4,] \"Reg_Tree\" \"19.0789\"\n[5,] \"Lin_Mod\"  \"20.4588\""
+    "text": "Mean Square error\n\nMean Square Error (test observations)\n\n\n\n     models     MSE      \n[1,] \"Add_Mod\"  \"726.698\"\n[2,] \"NN_Mod\"   \"728.525\"\n[3,] \"Ran_For\"  \"730.387\"\n[4,] \"Reg_Tree\" \"738.687\"\n[5,] \"Lin_Mod\"  \"796.054\"\n\n\n\nMean Absolute Error (test observations)\n\n\n\n     models     MAE      \n[1,] \"Add_Mod\"  \"18.9538\"\n[2,] \"Ran_For\"  \"19.0120\"\n[3,] \"NN_Mod\"   \"19.0525\"\n[4,] \"Reg_Tree\" \"19.0789\"\n[5,] \"Lin_Mod\"  \"20.4588\""
   },
   {
     "objectID": "talk_2.html#prediction-deviance",
     "href": "talk_2.html#prediction-deviance",
     "title": "Regression Models",
     "section": "prediction deviance",
-    "text": "prediction deviance\ndeviance \\(-2 \\log Likelihood\\) on test observations\n\n\n     models     pdeviance \n[1,] \"Reg_Tree\" \"12518.98\"\n[2,] \"Add_Mod\"  \"12904.79\"\n[3,] \"NN_Mod\"   \"12908.19\"\n[4,] \"Ran_For\"  \"12911.92\"\n[5,] \"Lin_Mod\"  \"13029.86\"\n\n\n\nin order to produce the predictive deviance results we assume that the ditribution for the tresponse is normal. Is this a sensible assumption?"
+    "text": "prediction deviance\ndeviance \\(-2 \\log Likelihood\\) (test observations)\n\n\n     models     pdeviance \n[1,] \"Reg_Tree\" \"12518.98\"\n[2,] \"Add_Mod\"  \"12904.79\"\n[3,] \"NN_Mod\"   \"12908.19\"\n[4,] \"Ran_For\"  \"12911.92\"\n[5,] \"Lin_Mod\"  \"13029.86\"\n\n\n\nin order to produce the predictive deviance results we assume that the distribution for the response is normal.\nIs this a sensible assumption?\nlet us test it"
   },
   {
     "objectID": "talk_2.html#qq-plot-of-the-prediction-residuals",
@@ -291,28 +291,28 @@
     "href": "talk_2.html#generalised-linear-models",
     "title": "Regression Models",
     "section": "Generalised Linear models",
-    "text": "Generalised Linear models\n\nthe mathematical model of Nelder and Wedderburn (1972) dominated the 1980’s\nas input-output model it can be written as \\[\nX  {\\longrightarrow} \\fbox{f()}  {\\longrightarrow} E(Y)\n\\] where \\(f()= g(\\eta=\\textbf{X}\\boldsymbol{\\beta})\\) and \\(g()\\) is a link function to make sure that values of \\(\\mu=E(Y)\\) have the right range"
+    "text": "Generalised Linear models\n\nthe mathematical model of Nelder and Wedderburn (1972) dominated the 1980’s\nas input-output model it can be written as \\[\nX  {\\longrightarrow} \\fbox{f()}  {\\longrightarrow} E(Y)\n\\] where \\(g()= g(\\eta=\\textbf{X}\\boldsymbol{\\beta})\\) and \\(g()\\) is called a link function to make sure that values of \\(\\mu=E(Y)\\) are in the right range"
   },
   {
     "objectID": "talk_2.html#generalised-linear-models-2",
     "href": "talk_2.html#generalised-linear-models-2",
     "title": "Regression Models",
     "section": "Generalised Linear models (2)",
-    "text": "Generalised Linear models (2)\n\\[\\begin{split}\n\\textbf{y}    &  \\stackrel{\\small{ind}}{\\sim }  D( \\boldsymbol{\\mu},  \\phi) \\nonumber \\\\\n\\mu(\\boldsymbol{\\eta}) &= \\textbf{X}\\boldsymbol{\\beta} \\nonumber \\\\\n\\end{split}\\]\nwhere D() is a distribution belonging ot the exponential family\n  - normal, gamma, inverse Gaussian   \n  - Poisson, bimomial\n\nthere were two major problems \\(\\mu(\\boldsymbol{\\eta})\\)"
+    "text": "Generalised Linear models (2)\n\\[\\begin{split}\n\\textbf{y}    &  \\stackrel{\\small{ind}}{\\sim }  D( \\boldsymbol{\\mu},  \\phi) \\nonumber \\\\\ng(\\boldsymbol{\\eta}) &= \\textbf{X}\\boldsymbol{\\beta} \\nonumber \\\\\n\\end{split}\\]\nwhere D() is a distribution belonging to the exponential family\n  - normal, gamma, inverse Gaussian   \n  - Poisson, bimomial\n\nthere were two major problems with the assumption for \\(g(\\boldsymbol{\\eta})\\)"
   },
   {
     "objectID": "talk_2.html#problems-with-muboldsymboleta",
     "href": "talk_2.html#problems-with-muboldsymboleta",
     "title": "Regression Models",
     "section": "Problems with \\(\\mu(\\boldsymbol{\\eta})\\)",
-    "text": "Problems with \\(\\mu(\\boldsymbol{\\eta})\\)\n\n\\(\\mu(\\boldsymbol{\\eta})\\) allows only linear effects [for non-linear use Generalised Additive Models, GAM’s Hastie and Tibshirani (1990)\ninteractions between terms have to be declared explicitly but for large number of explanatory variables this could be difficult.\nsome ML models fit interactions as part of their algorithm i.e. regression trees, neural networks"
+    "text": "Problems with \\(\\mu(\\boldsymbol{\\eta})\\)\n\n\\(g(\\boldsymbol{\\eta})\\) allows only linear effects [for non-linear use Generalised Additive Models, GAM’s Hastie and Tibshirani (1990)]\ninteractions between terms have to be declared explicitly but for large number of explanatory variables this could be difficult.\nNote that some ML models fit interactions as part of their algorithm i.e. regression trees, neural networks"
   },
   {
     "objectID": "talk_2.html#problems-with-d-boldsymbolmu-phi",
     "href": "talk_2.html#problems-with-d-boldsymbolmu-phi",
     "title": "Regression Models",
     "section": "Problems with \\(D( \\boldsymbol{\\mu},  \\phi)\\)",
-    "text": "Problems with \\(D( \\boldsymbol{\\mu},  \\phi)\\)\n\nexponential family has nice theoretical properties for the mean of \\(y\\), \\(\\left[ E(y) \\right]\\)\nif a second parameter \\(\\phi\\), exist it is treated as a nuisance\nignoring \\(\\phi\\) we have problems with:\n\nheterogeity and over/under-dispersion\nskewness and kurtosis (because are fixed)\n\ndistributional regression (GAMLSS) can correct those problems"
+    "text": "Problems with \\(D( \\boldsymbol{\\mu},  \\phi)\\)\n\nexponential family has nice theoretical properties for the mean of \\(y\\), \\(\\left[ E(y) \\right]\\)\nif a second parameter \\(\\phi\\), exist it is treated as a nuisance\nby ignoring \\(\\phi\\) we have problems with:\n\nheterogeity and over/under-dispersion\nskewness and kurtosis (because are fixed)\n\ndistributional regression like GAMLSS can correct those problems"
   },
   {
     "objectID": "talk_2.html#gam-fit",
@@ -333,7 +333,7 @@
     "href": "talk_2.html#gamlss",
     "title": "Regression Models",
     "section": "GAMLSS",
-    "text": "GAMLSS\nRigby and Stasinopoulos (2005) \\[X  {\\longrightarrow}  \\fbox{$\\boldsymbol{\\theta}$()} {\\longrightarrow} D(Y|\\boldsymbol{\\theta}(X)),\n\\] where \\(D(Y|\\boldsymbol{\\theta}(X))\\) represents the natural error distribution of \\(Y\\) (conditional on the \\(X\\)). The task of DR is to find ;\n\n\\(\\boldsymbol{\\theta}(X)\\) and \\(D(Y|\\boldsymbol{\\theta}(X))\\) have to estimated\nDistributional Regression"
+    "text": "GAMLSS\nRigby and Stasinopoulos (2005) \\[X  {\\longrightarrow}  \\fbox{$\\boldsymbol{\\theta}$()} {\\longrightarrow} D(Y|\\boldsymbol{\\theta}(X)),\n\\] where \\(D(Y|\\boldsymbol{\\theta}(X))\\) represents the natural error distribution of \\(Y\\) (conditional on the \\(X\\)).\n\nThe task of Distributional Regression is to find ;\n\nhow the x’s effect the parameters of the distribution i.e \\(\\boldsymbol{\\theta}(X)\\) and\nthe appropriate distribution for the response i.e. \\(D(Y|\\boldsymbol{\\theta}(X))\\)"
   },
   {
     "objectID": "talk_2.html#gamlss-fit",
@@ -418,5 +418,19 @@
     "title": "Regression Models",
     "section": "Introduction",
     "text": "Introduction\n\n\nmachine learning models as they stand, are not always suitable for environmental data\ngoodness of fit measure should represent more closely the question in hand\nInterpretation of the model is important for improvements in scientific knowledge\nthis talk is my personal opinion on how regression models should adapt for environmental data"
+  },
+  {
+    "objectID": "talk_2.html#summary-not-finished-yet",
+    "href": "talk_2.html#summary-not-finished-yet",
+    "title": "Regression Models",
+    "section": "Summary (not finished yet)",
+    "text": "Summary (not finished yet)\n\ndata\nassumptions\nmodel\n\nmathematical or algorithmic\ninterpretable or black box\n\nHow we can compare the accurancy between different models?\nthis is done usually using a risk function"
+  },
+  {
+    "objectID": "talk_2.html#middle-talk-summary",
+    "href": "talk_2.html#middle-talk-summary",
+    "title": "Regression Models",
+    "section": "middle talk summary",
+    "text": "middle talk summary\n\ndata\nassumptions\nmodel\n\nmathematical or algorithmic\ninterpretable or black box\n\nHow we can compare the accurancy between different models?\nthis is done usually using a risk function"
   }
 ]

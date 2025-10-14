@@ -527,7 +527,7 @@ Table&nbsp;1: The Table of Data
 </div>
 </section>
 <section id="examples-liver-function" class="slide level2">
-<h2>Examples; liver function</h2>
+<h2>Examples liver function</h2>
 
 <img data-src="talk_2_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"></section>
 <section id="example-liver-function-2" class="slide level2">
@@ -571,7 +571,8 @@ Table&nbsp;1: The Table of Data
 <li class="fragment"><p>the <code>question</code> is the <code>hypothesis</code>, the <code>purpose</code> of the study; It is what the researcher tries to understand and answer</p></li>
 <li class="fragment"><p>the next question is:</p>
 <p>can the <code>data</code> or the <code>model</code> answer the question in hand?</p></li>
-<li class="fragment"><p>if the answer is <code>yes</code> then <code>how</code>. Can be answered by <code>regression</code>?</p></li>
+<li class="fragment"><p>if the answer is <code>yes</code> then <code>how</code>.</p></li>
+<li class="fragment"><p>can be answered by <code>regression</code>?</p></li>
 <li class="fragment"><p>regression is an <code>input-output</code> model.</p></li>
 </ul>
 </div>
@@ -708,7 +709,7 @@ GAMLSS-RS iteration  3: Global Deviance = 19304.4115 eps = 0.000000     </code><
 <h2>Machine Learning</h2>
 <div>
 <ul>
-<li class="fragment"><p>a typical supervised machine learning model has the form <span class="math display">\[Y= f(X)+ \epsilon\]</span> where the error <span class="math inline">\(\epsilon\)</span> is assumed to be an <code>identical and independently distributed</code> random variable</p></li>
+<li class="fragment"><p>a typical supervised machine learning model has the form <span class="math display">\[Y= g(X)+ \epsilon\]</span> where the error <span class="math inline">\(\epsilon\)</span> is assumed to be an <code>identical and independently distributed</code> random variable</p></li>
 <li class="fragment"><p>implicitly it is assumed that the error is a <code>symmetrical</code> random variable.</p></li>
 </ul>
 </div>
@@ -722,8 +723,9 @@ GAMLSS-RS iteration  3: Global Deviance = 19304.4115 eps = 0.000000     </code><
 X  {\longrightarrow} \fbox{f()}  {\longrightarrow} E(Y)
 \]</span> where the <span class="math inline">\(E(y)\)</span> is the <code>expected</code> value of <span class="math inline">\(Y\)</span> plus</p>
 <ul>
-<li>implicit assumptions for <span class="math inline">\(f()\)</span> and</li>
-<li>explicit <code>symmetrical</code> and <code>independent</code> assumption for <span class="math inline">\(\epsilon\)</span></li>
+<li><p>implicit assumptions for <span class="math inline">\(f()\)</span> and</p></li>
+<li><p>explicit <code>symmetrical</code> and <code>independent</code> assumption for <span class="math inline">\(\epsilon\)</span></p></li>
+<li><p>only the <code>mean</code> is modelled</p></li>
 </ul>
 </section>
 <section id="the-machine-learing-assumtions" class="slide level2">
@@ -733,6 +735,7 @@ X  {\longrightarrow} \fbox{f()}  {\longrightarrow} E(Y)
 <li><p><span class="math inline">\(\mu= f(\text{ga})\)</span></p></li>
 <li><p><span class="math inline">\(\sigma\)</span>= constant</p></li>
 <li><p><span class="math inline">\(ALP\)</span> observations are independent</p></li>
+<li><p>all are implicit assumptions that some machine learners <code>forget</code> or do not <code>bother</code> to tell</p></li>
 </ul>
 </section>
 <section id="regression-tree-fit" class="slide level2">
@@ -750,7 +753,7 @@ GAMLSS-RS iteration  3: Global Deviance = 18680.5446 eps = 0.000001     </code><
 <h2>Black box</h2>
 <ul>
 <li><p>algorithm models could be <code>black box</code>’s</p></li>
-<li><p>they are two reasons for a black box’s</p></li>
+<li><p>they are two main reasons for a black box</p></li>
 </ul>
 <div>
 <ol type="i">
@@ -758,7 +761,8 @@ GAMLSS-RS iteration  3: Global Deviance = 18680.5446 eps = 0.000001     </code><
 <li class="fragment"><p>there are <code>proprietary</code> reasons</p></li>
 </ol>
 <ul>
-<li class="fragment"><p>black box <span class="math inline">\(\Longleftrightarrow\)</span> <code>interpretable</code><span class="math inline">\(\simeq\)</span><code>transparent</code><span class="math inline">\(\simeq\)</span><code>explainable</code><span class="math inline">\(\simeq\)</span><code>comprehensive</code> models</p></li>
+<li class="fragment"><p><code>black box</code> <span class="math inline">\(\stackrel{\small{against}}{\Longleftrightarrow}\)</span> <code>interpretable</code></p></li>
+<li class="fragment"><p><code>transparent</code>, <code>explainable</code>, <code>comprehensive</code> models</p></li>
 <li class="fragment"><p>the <code>question</code> in hand should determine whether the model should be <code>interpretable</code>.</p></li>
 </ul>
 </div>
@@ -791,12 +795,12 @@ GAMLSS-RS iteration  3: Global Deviance = 19294.2941 eps = 0.000000     </code><
 <div>
 <ul>
 <li class="fragment"><p>“Stop explaining black box machine learning models for <code>high stakes decisions</code> and use <code>interpretable</code> models instead” <span class="citation" data-cites="rudin2019stop">(<a href="#/reference" role="doc-biblioref" onclick="">Rudin 2019</a>)</span></p></li>
-<li class="fragment"><p>the argument came from the fact that among all adequate model (the <code>Rashomon set</code>) few are <code>interpretable</code> <span class="citation" data-cites="rudin2024amazing">(<a href="#/reference" role="doc-biblioref" onclick="">Rudin et al. 2024</a>)</span>,</p></li>
+<li class="fragment"><p>the argument came from the fact that among all adequate models (the <code>Rashomon set</code>) few are <code>interpretable</code> <span class="citation" data-cites="rudin2024amazing">(<a href="#/reference" role="doc-biblioref" onclick="">Rudin et al. 2024</a>)</span></p></li>
 </ul>
 </div>
 </section>
-<section id="summary" class="slide level2">
-<h2>Summary</h2>
+<section id="middle-talk-summary" class="slide level2">
+<h2>middle talk summary</h2>
 <ul>
 <li><p><code>data</code></p></li>
 <li><p><code>assumptions</code></p></li>
@@ -814,7 +818,7 @@ GAMLSS-RS iteration  3: Global Deviance = 19294.2941 eps = 0.000000     </code><
 <div>
 <ul>
 <li class="fragment"><p>A <code>risk</code> function measure the <code>accuracy</code> of the model. [it measure how accurate <span class="math inline">\(f()\)</span> is for a specific risk function]</p></li>
-<li class="fragment"><p>a <code>risk</code> is defined as the expected loss <span class="math inline">\(\ell\)</span>. That is, we define the lost function <span class="math inline">\(\ell\)</span> first as a function of the response <span class="math inline">\(Y\)</span> and the explanatory variable <span class="math inline">\(X\)</span> and then we take expecations: <span class="math display">\[R(f) = \mathbb{E}_{X,Y} [ \ell(f(X), Y) ]\]</span> -<span class="math inline">\(f()\)</span> is the model,<br>
+<li class="fragment"><p>a <code>risk</code> is defined as the expected loss <span class="math inline">\(\ell\)</span>. That is, we define a lost function <span class="math inline">\(\ell\)</span> first as a function of the response <span class="math inline">\(Y\)</span> and the explanatory variable <span class="math inline">\(X\)</span> and then we take expectations: <span class="math display">\[R(f) = \mathbb{E}_{X,Y} [ \ell(g(X), Y) ]\]</span> -<span class="math inline">\(g()\)</span> is the model,<br>
 </p></li>
 </ul>
 </div>
@@ -822,26 +826,26 @@ GAMLSS-RS iteration  3: Global Deviance = 19294.2941 eps = 0.000000     </code><
 <section id="loss-functions" class="slide level2">
 <h2>loss functions</h2>
 <ul>
-<li><p><code>squared</code> error : <span class="math inline">\(\sum_{i}^n (y_i - \hat{y_i})^2\)</span></p></li>
-<li><p><code>absolute</code> error: <span class="math inline">\(\sum_{i}^n \left|y_i - \hat{y_i} \right|\)</span></p></li>
-<li><p><code>information</code> based error: -<span class="math inline">\(\int_{-\infty}^\infty \log f(y_i, \hat{\theta}_i )\)</span></p></li>
+<li><p><code>squared</code> error : <span class="math inline">\((y_{true} - y_{fitted})^2\)</span></p></li>
+<li><p><code>absolute</code> error: <span class="math inline">\(\left|y_{true} - y_{fitted} \right|\)</span></p></li>
+<li><p><code>information</code> based error: <span class="math inline">\(- \int_{-\infty}^\infty f_{true}(y|x) \log f_{fitted}[y, \theta(x) ] dy\)</span></p></li>
 <li><p>risk functions could include <code>penalty</code> terms</p></li>
-<li><p><code>empirical risk</code>: instead of taken expectation using the unknown “true` distribution we just average over the observations i.e.&nbsp;<span class="math inline">\(\frac{1}{n}\)</span></p></li>
+<li><p><code>empirical risk</code>: instead of taken expectation using the unknown <code>true</code> distribution we just average over the observations i.e.&nbsp;<span class="math inline">\(\frac{1}{n} \sum_{i}^{n} (y_{true,i} - y_{fitted,i})^2\)</span></p></li>
 </ul>
 </section>
 <section id="empirical-risk" class="slide level2">
 <h2>Empirical Risk</h2>
 <ul>
-<li><p>the <code>likelihood function</code> is an empirical risk</p></li>
-<li><p>the evaluation of the empirical risk is more effective if it is done on <code>out of bag</code>, (OOB), or <code>test</code> data</p></li>
-<li><p>the square error and absolue error risk functions tell us how <code>far</code> the <span class="math inline">\(Y\)</span> is from its estimated <code>expected value</code> <span class="math inline">\(E(Y)\)</span>. They tell us <code>nothing</code> on how well other part of the distribution for <span class="math inline">\(Y\)</span> are fitted i.e.&nbsp;the tails</p></li>
+<li><p>the <code>empirical risk</code> is the <code>log likelihood</code> for information based measure</p></li>
+<li><p>the evaluation of the empirical risk is more effective if it is done on <code>out of bag</code> data, or <code>test</code> data</p></li>
+<li><p>the square error and absolute error risk functions tell us how <code>far</code> the <span class="math inline">\(Y\)</span> is from its estimated <code>expected value</code> <span class="math inline">\(E(Y)\)</span>. They tell us <code>nothing</code> on how well other part of the distribution for <span class="math inline">\(Y\)</span> are fitted i.e.&nbsp;the tails</p></li>
 <li><p>the <code>empirical risk</code> should be always related to the <code>question</code> in hand.</p></li>
 </ul>
 <!-- - similar value of different models risk functions from the same data set lead to the `Rashomon` effect    -->
 </section>
 <section id="comparing-models" class="slide level2">
 <h2>comparing models</h2>
-<p>’information` based criteria: AIC and BIC</p>
+<p><code>information</code> based criteria: AIC and BIC</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>              AIC         df
@@ -876,7 +880,7 @@ Ran_For  20072.10 102.000000</code></pre>
 <section id="mean-square-error" class="slide level2">
 <h2>Mean Square error</h2>
 <ul>
-<li>Mean Square Error on <code>test</code> obervarions</li>
+<li>Mean Square Error (<code>test</code> observations)</li>
 </ul>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -889,7 +893,7 @@ Ran_For  20072.10 102.000000</code></pre>
 </div>
 </div>
 <ul>
-<li>Mean Absolute Erroe on <code>test</code> obervarions</li>
+<li>Mean Absolute Error (<code>test</code> observations)</li>
 </ul>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -904,7 +908,7 @@ Ran_For  20072.10 102.000000</code></pre>
 </section>
 <section id="prediction-deviance" class="slide level2">
 <h2>prediction deviance</h2>
-<p>deviance <span class="math inline">\(-2 \log Likelihood\)</span> on test observations</p>
+<p>deviance <span class="math inline">\(-2 \log Likelihood\)</span> (test observations)</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>     models     pdeviance 
@@ -916,7 +920,9 @@ Ran_For  20072.10 102.000000</code></pre>
 </div>
 </div>
 <ul>
-<li>in order to produce the predictive deviance results we assume that the ditribution for the tresponse is <code>normal</code>. Is this a sensible assumption?</li>
+<li><p>in order to produce the predictive deviance results we assume that the distribution for the response is <code>normal</code>.</p></li>
+<li><p>Is this a sensible assumption?</p></li>
+<li><p>let us test it</p></li>
 </ul>
 </section>
 <section id="qq-plot-of-the-prediction-residuals" class="slide level2">
@@ -933,28 +939,28 @@ Ran_For  20072.10 102.000000</code></pre>
 <li>the mathematical model of <span class="citation" data-cites="NelderWeddeburn72">Nelder and Wedderburn (<a href="#/reference" role="doc-biblioref" onclick="">1972</a>)</span> dominated the 1980’s</li>
 <li>as <code>input-output</code> model it can be written as <span class="math display">\[
 X  {\longrightarrow} \fbox{f()}  {\longrightarrow} E(Y)
-\]</span> where <span class="math inline">\(f()= g(\eta=\textbf{X}\boldsymbol{\beta})\)</span> and <span class="math inline">\(g()\)</span> is a <code>link</code> function to make sure that values of <span class="math inline">\(\mu=E(Y)\)</span> have the right range</li>
+\]</span> where <span class="math inline">\(g()= g(\eta=\textbf{X}\boldsymbol{\beta})\)</span> and <span class="math inline">\(g()\)</span> is called a <code>link</code> function to make sure that values of <span class="math inline">\(\mu=E(Y)\)</span> are in the right range</li>
 </ul>
 </section>
 <section id="generalised-linear-models-2" class="slide level2">
 <h2>Generalised Linear models (2)</h2>
 <span class="math display">\[\begin{split}
 \textbf{y}    &amp;  \stackrel{\small{ind}}{\sim }  D( \boldsymbol{\mu},  \phi) \nonumber \\
-\mu(\boldsymbol{\eta}) &amp;= \textbf{X}\boldsymbol{\beta} \nonumber \\
+g(\boldsymbol{\eta}) &amp;= \textbf{X}\boldsymbol{\beta} \nonumber \\
 \end{split}\]</span>
-<p>where D() is a distribution belonging ot the <code>exponential family</code></p>
+<p>where D() is a distribution belonging to the <code>exponential family</code></p>
 <pre><code>  - normal, gamma, inverse Gaussian   
   - Poisson, bimomial</code></pre>
 <ul>
-<li>there were two major problems <span class="math inline">\(\mu(\boldsymbol{\eta})\)</span></li>
+<li>there were two major problems with the assumption for <span class="math inline">\(g(\boldsymbol{\eta})\)</span></li>
 </ul>
 </section>
 <section id="problems-with-muboldsymboleta" class="slide level2">
 <h2>Problems with <span class="math inline">\(\mu(\boldsymbol{\eta})\)</span></h2>
 <ul>
-<li><p><span class="math inline">\(\mu(\boldsymbol{\eta})\)</span> allows only <code>linear</code> effects [for <code>non-linear</code> use Generalised Additive Models, <code>GAM</code>’s <span class="citation" data-cites="HastieTibshirani90">Hastie and Tibshirani (<a href="#/reference" role="doc-biblioref" onclick="">1990</a>)</span></p></li>
+<li><p><span class="math inline">\(g(\boldsymbol{\eta})\)</span> allows only <code>linear</code> effects [for <code>non-linear</code> use Generalised Additive Models, <code>GAM</code>’s <span class="citation" data-cites="HastieTibshirani90">Hastie and Tibshirani (<a href="#/reference" role="doc-biblioref" onclick="">1990</a>)</span>]</p></li>
 <li><p><code>interactions</code> between terms have to be declared explicitly but for large number of explanatory variables this could be difficult.</p></li>
-<li><p>some ML models fit interactions as part of their algorithm i.e.&nbsp;regression trees, neural networks</p></li>
+<li><p>Note that some <code>ML</code> models fit interactions as part of their algorithm i.e.&nbsp;regression trees, neural networks</p></li>
 </ul>
 </section>
 <section id="problems-with-d-boldsymbolmu-phi" class="slide level2">
@@ -962,12 +968,12 @@ X  {\longrightarrow} \fbox{f()}  {\longrightarrow} E(Y)
 <ul>
 <li><p>exponential family has nice theoretical properties for the mean of <span class="math inline">\(y\)</span>, <span class="math inline">\(\left[ E(y) \right]\)</span></p></li>
 <li><p>if a second parameter <span class="math inline">\(\phi\)</span>, exist it is treated as a <code>nuisance</code></p></li>
-<li><p>ignoring <span class="math inline">\(\phi\)</span> we have problems with:</p>
+<li><p>by ignoring <span class="math inline">\(\phi\)</span> we have problems with:</p>
 <ul>
 <li><p><code>heterogeity</code> and <code>over/under-dispersion</code></p></li>
 <li><p><code>skewness</code> and <code>kurtosis</code> (because are fixed)</p></li>
 </ul></li>
-<li><p><code>distributional regression</code> (GAMLSS) can correct those problems</p></li>
+<li><p><code>distributional regression</code> like GAMLSS can correct those problems</p></li>
 </ul>
 </section>
 <section id="gam-fit" class="slide level2">
@@ -981,10 +987,13 @@ X  {\longrightarrow} \fbox{f()}  {\longrightarrow} E(Y)
 <section id="gamlss" class="slide level2">
 <h2>GAMLSS</h2>
 <p><span class="citation" data-cites="RigbyStasinopoulos05">Rigby and Stasinopoulos (<a href="#/reference" role="doc-biblioref" onclick="">2005</a>)</span> <span class="math display">\[X  {\longrightarrow}  \fbox{$\boldsymbol{\theta}$()} {\longrightarrow} D(Y|\boldsymbol{\theta}(X)),
-\]</span> where <span class="math inline">\(D(Y|\boldsymbol{\theta}(X))\)</span> represents the <code>natural error</code> distribution of <span class="math inline">\(Y\)</span> (conditional on the <span class="math inline">\(X\)</span>). The task of DR is to find ;</p>
+\]</span> where <span class="math inline">\(D(Y|\boldsymbol{\theta}(X))\)</span> represents the <code>natural error</code> distribution of <span class="math inline">\(Y\)</span> (conditional on the <span class="math inline">\(X\)</span>).</p>
 <ul>
-<li><p><span class="math inline">\(\boldsymbol{\theta}(X)\)</span> and <span class="math inline">\(D(Y|\boldsymbol{\theta}(X))\)</span> have to estimated</p></li>
-<li><p><code>Distributional Regression</code></p></li>
+<li><p>The task of <code>Distributional Regression</code> is to find ;</p>
+<ul>
+<li>how the x’s effect the parameters of the distribution i.e <span class="math inline">\(\boldsymbol{\theta}(X)\)</span> and</li>
+<li>the appropriate distribution for the response i.e.&nbsp;<span class="math inline">\(D(Y|\boldsymbol{\theta}(X))\)</span></li>
+</ul></li>
 </ul>
 </section>
 <section id="gamlss-fit" class="slide level2">
@@ -1000,7 +1009,7 @@ X  {\longrightarrow} \fbox{f()}  {\longrightarrow} E(Y)
 <div>
 
 </div>
-<div class="quarto-layout-panel" data-layout-nrow="1" data-layout-ncol="1,">
+<div class="quarto-layout-panel" data-layout-ncol="1," data-layout-nrow="1">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
@@ -1018,7 +1027,7 @@ X  {\longrightarrow} \fbox{f()}  {\longrightarrow} E(Y)
 <div>
 
 </div>
-<div class="quarto-layout-panel" data-layout-nrow="1" data-layout-ncol="1,">
+<div class="quarto-layout-panel" data-layout-ncol="1," data-layout-nrow="1">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
@@ -1036,7 +1045,7 @@ X  {\longrightarrow} \fbox{f()}  {\longrightarrow} E(Y)
 <div>
 
 </div>
-<div class="quarto-layout-panel" data-layout-nrow="1" data-layout-ncol="1,">
+<div class="quarto-layout-panel" data-layout-ncol="1," data-layout-nrow="1">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
@@ -1054,7 +1063,7 @@ X  {\longrightarrow} \fbox{f()}  {\longrightarrow} E(Y)
 <div>
 
 </div>
-<div class="quarto-layout-panel" data-layout-nrow="1" data-layout-ncol="1,">
+<div class="quarto-layout-panel" data-layout-ncol="1," data-layout-nrow="1">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
@@ -1153,7 +1162,7 @@ X  {\longrightarrow} \fbox{f()}  {\longrightarrow} E(Y)
 <div>
 
 </div>
-<div class="quarto-layout-panel" data-layout-nrow="1" data-layout-ncol="3,">
+<div class="quarto-layout-panel" data-layout-ncol="3," data-layout-nrow="1">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <p><img data-src="book-1.png" width="300"> <img data-src="BOOK-2.png" width="323"> <img data-src="book3.png" width="333"> The Books</p>
