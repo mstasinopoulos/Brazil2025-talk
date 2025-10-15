@@ -193,7 +193,7 @@
     "href": "talk_2.html#black-box",
     "title": "Regression Models",
     "section": "Black box",
-    "text": "Black box\n\nalgorithm models could be black box’s\nthey are two main reasons for a black box\n\n\n\nthe function \\(f()\\) is too complicated to explain\nthere are proprietary reasons\n\n\nblack box \\(\\stackrel{\\small{against}}{\\Longleftrightarrow}\\) interpretable\ntransparent, explainable, comprehensive models\nthe question in hand should determine whether the model should be interpretable."
+    "text": "Black box\n\nalgorithm models could be black box’s\nthey are two main reasons for a black box\n\n\n\nthe function \\(f()\\) is too complicated to explain\nthere are proprietary reasons\n\n\n\nblack box against interpretable\ntransparent, explainable, comprehensive models\nthe question in hand should determine whether the model should be interpretable."
   },
   {
     "objectID": "talk_2.html#neural-network-fit",
@@ -249,7 +249,7 @@
     "href": "talk_2.html#comparing-models",
     "title": "Regression Models",
     "section": "comparing models",
-    "text": "comparing models\ninformation based criteria: AIC and BIC\n\n\n              AIC         df\nReg_Tree 18704.54  12.000000\nAdd_Mod  19315.91   5.749771\nNN_Mod   19407.37  33.000000\nRan_For  19498.29 102.000000\nLin_Mod  19562.87   3.000000\n\n\n              AIC         df\nReg_Tree 18772.05  12.000000\nAdd_Mod  19348.26   5.749771\nLin_Mod  19579.75   3.000000\nNN_Mod   19593.02  33.000000\nRan_For  20072.10 102.000000"
+    "text": "comparing models\ninformation based criteria:\n\nAIC\n\n\n\n              AIC         df\nReg_Tree 18704.54  12.000000\nAdd_Mod  19315.91   5.749771\nNN_Mod   19407.37  33.000000\nRan_For  19498.29 102.000000\nLin_Mod  19562.87   3.000000\n\n\n\nBIC\n\n\n\n              AIC         df\nReg_Tree 18772.05  12.000000\nAdd_Mod  19348.26   5.749771\nLin_Mod  19579.75   3.000000\nNN_Mod   19593.02  33.000000\nRan_For  20072.10 102.000000"
   },
   {
     "objectID": "talk_2.html#degrees-of-freedom",
@@ -263,7 +263,7 @@
     "href": "talk_2.html#mean-square-error",
     "title": "Regression Models",
     "section": "Mean Square error",
-    "text": "Mean Square error\n\nMean Square Error (test observations)\n\n\n\n     models     MSE      \n[1,] \"Add_Mod\"  \"726.698\"\n[2,] \"NN_Mod\"   \"728.525\"\n[3,] \"Ran_For\"  \"730.387\"\n[4,] \"Reg_Tree\" \"738.687\"\n[5,] \"Lin_Mod\"  \"796.054\"\n\n\n\nMean Absolute Error (test observations)\n\n\n\n     models     MAE      \n[1,] \"Add_Mod\"  \"18.9538\"\n[2,] \"Ran_For\"  \"19.0120\"\n[3,] \"NN_Mod\"   \"19.0525\"\n[4,] \"Reg_Tree\" \"19.0789\"\n[5,] \"Lin_Mod\"  \"20.4588\""
+    "text": "Mean Square error\n\ndata are separated to training and test data sets\nMean Square Error (test observations)\n\n\n\n     models     MSE      \n[1,] \"Add_Mod\"  \"726.698\"\n[2,] \"NN_Mod\"   \"728.525\"\n[3,] \"Ran_For\"  \"730.387\"\n[4,] \"Reg_Tree\" \"738.687\"\n[5,] \"Lin_Mod\"  \"796.054\"\n\n\n\nMean Absolute Error (test observations)\n\n\n\n     models     MAE      \n[1,] \"Add_Mod\"  \"18.9538\"\n[2,] \"Ran_For\"  \"19.0120\"\n[3,] \"NN_Mod\"   \"19.0525\"\n[4,] \"Reg_Tree\" \"19.0789\"\n[5,] \"Lin_Mod\"  \"20.4588\""
   },
   {
     "objectID": "talk_2.html#prediction-deviance",
@@ -382,7 +382,7 @@
     "href": "talk_2.html#conclusions",
     "title": "Regression Models",
     "section": "Conclusions",
-    "text": "Conclusions\n\nthe data, the model, the question are interrelated, you can not consider one without the other in order to extract the right information.\nif the question does not involve the mean of \\(Y\\) a distributional regression seems more appropriate\ndistributional regression model could answer questions that ML and AI can not"
+    "text": "Conclusions\n\nthe data, the model, the question are interrelated, you can not consider one without the other in order to extract the right information.\nif the question does not involve the mean of \\(Y\\) a GAMLSS model seems appropriate\ndistributional regression model could answer questions that ML and AI can not"
   },
   {
     "objectID": "talk_2.html#conclusions-2",
@@ -432,5 +432,12 @@
     "title": "Regression Models",
     "section": "middle talk summary",
     "text": "middle talk summary\n\ndata\nassumptions\nmodel\n\nmathematical or algorithmic\ninterpretable or black box\n\nHow we can compare the accurancy between different models?\nthis is done usually using a risk function"
+  },
+  {
+    "objectID": "talk_2.html#packages",
+    "href": "talk_2.html#packages",
+    "title": "Regression Models",
+    "section": "packages",
+    "text": "packages\n\nthere are two packages in R\ngamlss (older version) and\ngamlss2\nlater version can be accessed from gamlss universe\nthe original paper is in web-site"
   }
 ]

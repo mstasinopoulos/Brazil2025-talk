@@ -415,11 +415,21 @@ i)  the function $f()$ is too `complicated` to explain
 
 ii) there are `proprietary` reasons
 
--   `black box` $\stackrel{\small{against}}{\Longleftrightarrow}$ `interpretable`
+<!-- -   `black box` $\stackrel{\small{against}}{\Longleftrightarrow}$ `interpretable` -->
+
+- `black box` against `interpretable`
 
 - `transparent`, `explainable`, `comprehensive` models
 
 -   the `question` in hand should determine whether the model should be `interpretable`.
+:::
+
+## Black box (2)
+
+::: incremental
+-   "Stop explaining black box machine learning models for `high stakes decisions` and use `interpretable` models instead" [@rudin2019stop]
+
+-   the argument came from the fact that among all adequate models (the `Rashomon set`) few are `interpretable` [@rudin2024amazing]
 :::
 
 ## neural network fit
@@ -445,14 +455,6 @@ plot(ALP~ga, data=DA.train, xlab="gestational age")
  fv <- as.vector(fitted(Ran_For)[,1])
 lines(fv[order(DA.train$ga)]~DA.train$ga[order(DA.train$ga)], col="red")
 ```
-
-## Black box (2)
-
-::: incremental
--   "Stop explaining black box machine learning models for `high stakes decisions` and use `interpretable` models instead" [@rudin2019stop]
-
--   the argument came from the fact that among all adequate models (the `Rashomon set`) few are `interpretable` [@rudin2024amazing]
-:::
 
 ## middle talk summary 
 
@@ -506,11 +508,17 @@ lines(fv[order(DA.train$ga)]~DA.train$ga[order(DA.train$ga)], col="red")
 
 ## comparing models
 
-`information` based criteria: AIC and BIC
+`information` based criteria: 
+
+- AIC 
 
 ```{r}
 #| label: "GAIC"
 GAIC(Lin_Mod,Add_Mod,Reg_Tree, NN_Mod, Ran_For)
+```
+
+- BIC
+```{r}
 GAIC(Lin_Mod,Add_Mod,Reg_Tree, NN_Mod, Ran_For, k=log(dim(DA.train)[1]))
 ```
 
@@ -527,6 +535,8 @@ GAIC(Lin_Mod,Add_Mod,Reg_Tree, NN_Mod, Ran_For, k=log(dim(DA.train)[1]))
 -   what if we do not know the df's? 
 
 ## Mean Square error
+
+- data are separated  to `training` and `test` data sets
 
 -   Mean Square Error (`test` observations)
 
@@ -751,7 +761,7 @@ resid_qqplot(lm5)
 
 -   the `data`, the `model`, the `question` are interrelated, you can not consider one without the other in order to extract the right information.
 
--   if the `question` does not involve the mean of $Y$ a distributional regression seems more appropriate
+-   if the `question` does not involve the mean of $Y$ a `GAMLSS` model seems appropriate
 
 -   distributional regression model could answer `questions` that `ML` and `AI` can not
 
@@ -776,6 +786,19 @@ resid_qqplot(lm5)
 | `Reto Stauffer` | `Elisa Van Eynde` | Majid Djennad |
 | `Robert Rigby` | `Julian Merder` | Nikos Georgikopoulos |
 | `Mikis Stasinopoulos` | Abu Hossain | Raydonal Ospina, Fiona McElduff |
+
+## packages
+
+- there are two packages in `R`
+
+- `gamlss` (older version) and 
+
+- `gamlss2` 
+
+- later version can be accessed from [gamlss universe](https://gamlss-dev.r-universe.dev/builds)
+
+- the original paper is in [web-site](https://academic.oup.com/jrsssc/article-abstract/54/3/507/7113027?redirectedFrom=fulltext)
+
 
 ## end
 

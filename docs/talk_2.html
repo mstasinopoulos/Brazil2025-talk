@@ -760,10 +760,20 @@ GAMLSS-RS iteration  3: Global Deviance = 18680.5446 eps = 0.000001     </code><
 <li class="fragment"><p>the function <span class="math inline">\(f()\)</span> is too <code>complicated</code> to explain</p></li>
 <li class="fragment"><p>there are <code>proprietary</code> reasons</p></li>
 </ol>
+<!-- -   `black box` $\stackrel{\small{against}}{\Longleftrightarrow}$ `interpretable` -->
 <ul>
-<li class="fragment"><p><code>black box</code> <span class="math inline">\(\stackrel{\small{against}}{\Longleftrightarrow}\)</span> <code>interpretable</code></p></li>
+<li class="fragment"><p><code>black box</code> against <code>interpretable</code></p></li>
 <li class="fragment"><p><code>transparent</code>, <code>explainable</code>, <code>comprehensive</code> models</p></li>
 <li class="fragment"><p>the <code>question</code> in hand should determine whether the model should be <code>interpretable</code>.</p></li>
+</ul>
+</div>
+</section>
+<section id="black-box-2" class="slide level2">
+<h2>Black box (2)</h2>
+<div>
+<ul>
+<li class="fragment"><p>“Stop explaining black box machine learning models for <code>high stakes decisions</code> and use <code>interpretable</code> models instead” <span class="citation" data-cites="rudin2019stop">(<a href="#/reference" role="doc-biblioref" onclick="">Rudin 2019</a>)</span></p></li>
+<li class="fragment"><p>the argument came from the fact that among all adequate models (the <code>Rashomon set</code>) few are <code>interpretable</code> <span class="citation" data-cites="rudin2024amazing">(<a href="#/reference" role="doc-biblioref" onclick="">Rudin et al. 2024</a>)</span></p></li>
 </ul>
 </div>
 </section>
@@ -790,15 +800,6 @@ GAMLSS-RS iteration  3: Global Deviance = 19294.2941 eps = 0.000000     </code><
 
 </div>
 <img data-src="talk_2_files/figure-revealjs/random forest-1.png" width="960" class="r-stretch"></section>
-<section id="black-box-2" class="slide level2">
-<h2>Black box (2)</h2>
-<div>
-<ul>
-<li class="fragment"><p>“Stop explaining black box machine learning models for <code>high stakes decisions</code> and use <code>interpretable</code> models instead” <span class="citation" data-cites="rudin2019stop">(<a href="#/reference" role="doc-biblioref" onclick="">Rudin 2019</a>)</span></p></li>
-<li class="fragment"><p>the argument came from the fact that among all adequate models (the <code>Rashomon set</code>) few are <code>interpretable</code> <span class="citation" data-cites="rudin2024amazing">(<a href="#/reference" role="doc-biblioref" onclick="">Rudin et al. 2024</a>)</span></p></li>
-</ul>
-</div>
-</section>
 <section id="middle-talk-summary" class="slide level2">
 <h2>middle talk summary</h2>
 <ul>
@@ -845,7 +846,10 @@ GAMLSS-RS iteration  3: Global Deviance = 19294.2941 eps = 0.000000     </code><
 </section>
 <section id="comparing-models" class="slide level2">
 <h2>comparing models</h2>
-<p><code>information</code> based criteria: AIC and BIC</p>
+<p><code>information</code> based criteria:</p>
+<ul>
+<li>AIC</li>
+</ul>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>              AIC         df
@@ -855,6 +859,11 @@ NN_Mod   19407.37  33.000000
 Ran_For  19498.29 102.000000
 Lin_Mod  19562.87   3.000000</code></pre>
 </div>
+</div>
+<ul>
+<li>BIC</li>
+</ul>
+<div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>              AIC         df
 Reg_Tree 18772.05  12.000000
@@ -880,7 +889,8 @@ Ran_For  20072.10 102.000000</code></pre>
 <section id="mean-square-error" class="slide level2">
 <h2>Mean Square error</h2>
 <ul>
-<li>Mean Square Error (<code>test</code> observations)</li>
+<li><p>data are separated to <code>training</code> and <code>test</code> data sets</p></li>
+<li><p>Mean Square Error (<code>test</code> observations)</p></li>
 </ul>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -928,11 +938,11 @@ Ran_For  20072.10 102.000000</code></pre>
 <section id="qq-plot-of-the-prediction-residuals" class="slide level2">
 <h2>qq-plot of the prediction residuals</h2>
 
-<img data-src="talk_2_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"></section>
+<img data-src="talk_2_files/figure-revealjs/unnamed-chunk-8-1.png" width="960" class="r-stretch"></section>
 <section id="the-centiles-of-the-best-model" class="slide level2">
 <h2>The centiles of the “best” model</h2>
 
-<img data-src="talk_2_files/figure-revealjs/unnamed-chunk-8-1.png" width="960" class="r-stretch"></section>
+<img data-src="talk_2_files/figure-revealjs/unnamed-chunk-9-1.png" width="960" class="r-stretch"></section>
 <section id="generalised-linear-models" class="slide level2">
 <h2>Generalised Linear models</h2>
 <ul>
@@ -1009,7 +1019,7 @@ g(\boldsymbol{\eta}) &amp;= \textbf{X}\boldsymbol{\beta} \nonumber \\
 <div>
 
 </div>
-<div class="quarto-layout-panel" data-layout-ncol="1," data-layout-nrow="1">
+<div class="quarto-layout-panel" data-layout-nrow="1" data-layout-ncol="1,">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
@@ -1027,7 +1037,7 @@ g(\boldsymbol{\eta}) &amp;= \textbf{X}\boldsymbol{\beta} \nonumber \\
 <div>
 
 </div>
-<div class="quarto-layout-panel" data-layout-ncol="1," data-layout-nrow="1">
+<div class="quarto-layout-panel" data-layout-nrow="1" data-layout-ncol="1,">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
@@ -1045,7 +1055,7 @@ g(\boldsymbol{\eta}) &amp;= \textbf{X}\boldsymbol{\beta} \nonumber \\
 <div>
 
 </div>
-<div class="quarto-layout-panel" data-layout-ncol="1," data-layout-nrow="1">
+<div class="quarto-layout-panel" data-layout-nrow="1" data-layout-ncol="1,">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
@@ -1063,7 +1073,7 @@ g(\boldsymbol{\eta}) &amp;= \textbf{X}\boldsymbol{\beta} \nonumber \\
 <div>
 
 </div>
-<div class="quarto-layout-panel" data-layout-ncol="1," data-layout-nrow="1">
+<div class="quarto-layout-panel" data-layout-nrow="1" data-layout-ncol="1,">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
@@ -1080,7 +1090,7 @@ g(\boldsymbol{\eta}) &amp;= \textbf{X}\boldsymbol{\beta} \nonumber \\
 <h2>Conclusions</h2>
 <ul>
 <li><p>the <code>data</code>, the <code>model</code>, the <code>question</code> are interrelated, you can not consider one without the other in order to extract the right information.</p></li>
-<li><p>if the <code>question</code> does not involve the mean of <span class="math inline">\(Y\)</span> a distributional regression seems more appropriate</p></li>
+<li><p>if the <code>question</code> does not involve the mean of <span class="math inline">\(Y\)</span> a <code>GAMLSS</code> model seems appropriate</p></li>
 <li><p>distributional regression model could answer <code>questions</code> that <code>ML</code> and <code>AI</code> can not</p></li>
 </ul>
 </section>
@@ -1156,13 +1166,23 @@ g(\boldsymbol{\eta}) &amp;= \textbf{X}\boldsymbol{\beta} \nonumber \\
 </tbody>
 </table>
 </section>
+<section id="packages" class="slide level2">
+<h2>packages</h2>
+<ul>
+<li><p>there are two packages in <code>R</code></p></li>
+<li><p><code>gamlss</code> (older version) and</p></li>
+<li><p><code>gamlss2</code></p></li>
+<li><p>later version can be accessed from <a href="https://gamlss-dev.r-universe.dev/builds">gamlss universe</a></p></li>
+<li><p>the original paper is in <a href="https://academic.oup.com/jrsssc/article-abstract/54/3/507/7113027?redirectedFrom=fulltext">web-site</a></p></li>
+</ul>
+</section>
 <section id="end" class="slide level2">
 <h2>end</h2>
 <p><a href="https://mstasinopoulos.github.io/Porto_short_course/">back to the index</a></p>
 <div>
 
 </div>
-<div class="quarto-layout-panel" data-layout-ncol="3," data-layout-nrow="1">
+<div class="quarto-layout-panel" data-layout-nrow="1" data-layout-ncol="3,">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <p><img data-src="book-1.png" width="300"> <img data-src="BOOK-2.png" width="323"> <img data-src="book3.png" width="333"> The Books</p>
