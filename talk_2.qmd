@@ -35,7 +35,7 @@ bibliography: book2025.bib
 
 ## Introduction
 
-::: incremental
+
 -   `machine learning models` as they stand, are not always suitable for environmental data
 
 -   `goodness of fit` measure should represent more closely the `question` in hand
@@ -43,24 +43,24 @@ bibliography: book2025.bib
 -   `Interpretation` of the model is important for improvements in scientific knowledge
 
 -   this talk is my `personal` opinion on how regression models should adapt for environmental `data`
-:::
+
 
 ## Data
 
 **data**; used to mean a file with a lot of;
 
-::: incremental
+
 -   `numbers`, (but data today could have)
 -   `text`,
 -   `pixels`, or
 -   any other file that containing `information`.
-:::
 
-::: incremental
+
+
 **data analysis** is the art of extraction `information` from the data.
 
 Regression model deal with `tabular` data
-:::
+
 
 ## Tabular data {.smaller}
 
@@ -77,7 +77,7 @@ Regression model deal with `tabular` data
 
 ## Data
 
-::: incremental
+
 -   The size of observations $n$ keeps growing over time
 
 -   the size of the variables $r$ is also increase
@@ -87,11 +87,11 @@ Regression model deal with `tabular` data
 -   there is `information` in data before start modelling we need to explore (see the package `gamlss.prepdata`)
 
 -   data `partition` helps the model building?
-:::
+
 
 ## Data Partition
 
-::: incremental
+
 data partition help with
 
 -   checking for `over-fitting`
@@ -103,7 +103,7 @@ there two types of partition
 -   `single` partition (holdout samples)
 
 -   `multiple` partitions (bootstrapping, K-fold cross validation )
-:::
+
 
 ## Data Partition (2)
 
@@ -111,7 +111,7 @@ there two types of partition
 
 ## Examples of data
 
-::: incremental
+
 -   `toxicity` in USA lakes [@merder2023geographic]
 
 -   `pollution` in the oceans using satellite images [@merder2024novel]
@@ -121,7 +121,7 @@ there two types of partition
 -   monitor liver functions during `pregnancy` [@judah2025reference]
 
 -   `phosphorus` in the soil in EU (current work)
-:::
+
 
 ## Examples liver function
 
@@ -176,15 +176,15 @@ plot(ALP~ga, data=DA.train, xlab="gestational age")
 
 -   a `model` is a simplification of reality.
 
-::: incremental
+
 -   **toy** models, ![toy model](toy_car.png){width="80"}
 -   **fashion** models ![fashion model](maleFashionModel.png){width="80"}
 -   **mathematical** models. ![math model](math_model.png){width="80"} where mathematical equations are used to describe reality.
-:::
+
 
 ## Models (2) {.pause}
 
-::: incremental
+
 -   
 
     > `all models are wrong but some are useful`.
@@ -194,11 +194,11 @@ plot(ALP~ga, data=DA.train, xlab="gestational age")
 -   whether a model is useful depends on the `purpose` of the study.
 
 -   is the `model` adequate to answer the `question`?
-:::
+
 
 ## question
 
-::: incremental
+
 -   the `question` is the `hypothesis`, the `purpose` of the study; It is what the researcher tries to understand and answer
 
 -   the next question is:
@@ -210,24 +210,23 @@ plot(ALP~ga, data=DA.train, xlab="gestational age")
 -   can be answered by `regression` analysis?
 
 -   regression is an `input-output` model.
-:::
+
 
 ## Input-output {.pause}
 
-::: incremental
+
 -   we have information on variable(s) $X$, the **input** variables,
 
 -   and we want to use this information to say something about the variable(s) $Y$ the **output**.
 
 -   Input-output model are `supervised` learning model (since a `response` variable exist)
-:::
+
 
 ## Input-output (2)
 
 @breiman2003statistical
 
-:::: incremental
-::: incremental
+
 -   $$
     X  {\longrightarrow}  \fbox{NATURE} {\longrightarrow} Y, \ \textit{(complex)}
     $$
@@ -239,12 +238,12 @@ plot(ALP~ga, data=DA.train, xlab="gestational age")
 -   $$
     X  {\longrightarrow} \fbox{f()}  {\longrightarrow} Y \ \textit{(mathematical model)}
     $$
-:::
+
 
 -   the task is to unmask the unknown `function` $f()$.
 
--   a compete unspecified function lead to AI otherwise we rely on `assumtions`
-::::
+-   a compete unspecified function lead to `AI` otherwise we rely on `assumtions`
+
 
 <!-- ## AI  -->
 
@@ -264,7 +263,7 @@ plot(ALP~ga, data=DA.train, xlab="gestational age")
 
 ## Assumptions
 
-::: incremental
+
 -   an `assumption` is an axiomatic statement which need to be accepted for the model to work.
 
 -   the reasoning is that: `if the assumptions are correct then the model should be OK`
@@ -273,7 +272,7 @@ plot(ALP~ga, data=DA.train, xlab="gestational age")
 
     -   a `linear` assumption for $f()$ is $\alpha+\beta_1 x_1 + \ldots + \beta_p x_p$
     -   `additive` assumption for $f()$ is $\alpha+f_1(x_1) + \ldots + f_p(x_p)$
-:::
+
 
 ## Assumption: linear model
 
@@ -309,7 +308,7 @@ Add_Mod <- gamlss2(ALP~s(ga), data=DA.train)
 
 ## Assumptions (2)
 
-::: incremental
+
 -   `explicit` assumptions, usually mathematical, are easy to check
 
 -   `implicit` assumptions (more difficult to check)
@@ -319,21 +318,21 @@ Add_Mod <- gamlss2(ALP~s(ga), data=DA.train)
 -   we should check `explicit` assumptions using `diagnostic` tools
 
 -   `algorithmic models` make mostly implicit assumptions about the function $f()$.
-:::
+
 
 ## Algorithmic model
 
-::: incremental
+
 -   an `algorithmic model` is a step-by-step computational procedure designed to perform a task by systematically transforming inputs into outputs according to a defined set of rules.
 
 -   no `explicit` assumptions for $f()$ are needed but a lot of `implicit` assumptions depending on the algorithm
 
 -   algorithmic models (like mathematical models) can be deterministic or `stochastic`
-:::
+
 
 ## Stochastic model
 
-::: incremental
+
 -   a `stochastic` model is a (mathematical or algorithmic) model which incorporates randomness so its output is not completely predictable even with the same starting conditions.
 
 -   stochastic regression models contain `probabilistic` assumptions on how the input-output model is generated.
@@ -341,25 +340,25 @@ Add_Mod <- gamlss2(ALP~s(ga), data=DA.train)
 -   the minimal assumption for a regression model is about the behaviour of the `response`
 
 -   in `linear` models $\textbf{y}=\textbf{X}\boldsymbol{\beta}+e$ where $e_i \sim N(\boldsymbol{0}, \sigma^2)$ is the classical stochastic model.
-:::
+
 
 ## Stochastic model (2)
 
-::: incremental
+
 -   `not` all problems need a stochastic component
 
 -   Stochastic models are often used because many natural, social, and physical systems have inherent variability.
 
 -   a stochastic algorithmic model is often called a `machine learning` model
-:::
+
 
 ## Machine Learning
 
-::: incremental
+
 -   a typical supervised machine learning model has the form $$Y= g(X)+ \epsilon$$ where the error $\epsilon$ is assumed to be an `identical and independently distributed` random variable
 
 -   implicitly it is assumed that the error is a `symmetrical` random variable.
-:::
+
 
 ## Machine Learning (2)
 
@@ -410,7 +409,7 @@ lines(fv[order(DA.train$ga)]~DA.train$ga[order(DA.train$ga)], col="red")
 
 -   they are two main reasons for a black box
 
-::: incremental
+
 i)  the function $f()$ is too `complicated` to explain
 
 ii) there are `proprietary` reasons
@@ -422,15 +421,14 @@ ii) there are `proprietary` reasons
 - `transparent`, `explainable`, `comprehensive` models
 
 -   the `question` in hand should determine whether the model should be `interpretable`.
-:::
+
 
 ## Black box (2)
 
-::: incremental
 -   "Stop explaining black box machine learning models for `high stakes decisions` and use `interpretable` models instead" [@rudin2019stop]
 
 -   the argument came from the fact that among all adequate models (the `Rashomon set`) few are `interpretable` [@rudin2024amazing]
-:::
+
 
 ## neural network fit
 
@@ -474,11 +472,11 @@ lines(fv[order(DA.train$ga)]~DA.train$ga[order(DA.train$ga)], col="red")
 
 ## Risk functions
 
-::: incremental
+
 -   A `risk` function measure the `accuracy` of the model. \[it measure how accurate $f()$ is for a specific risk function\]
 
 -   a `risk` is defined as the expected loss $\ell$. That is, we define a lost function $\ell$ first as a function of the response $Y$ and the explanatory variable $X$ and then we take expectations: $$R(f) = \mathbb{E}_{X,Y} [ \ell(g(X), Y) ]$$ -$g()$ is the model,\
-:::
+
 
 ## loss functions
 

@@ -18,7 +18,7 @@
     "href": "talk_2.html#data",
     "title": "Regression Models",
     "section": "Data",
-    "text": "Data\ndata; used to mean a file with a lot of;\n\n\nnumbers, (but data today could have)\ntext,\npixels, or\nany other file that containing information.\n\n\n\ndata analysis is the art of extraction information from the data.\nRegression model deal with tabular data"
+    "text": "Data\ndata; used to mean a file with a lot of;\n\nnumbers, (but data today could have)\ntext,\npixels, or\nany other file that containing information.\n\ndata analysis is the art of extraction information from the data.\nRegression model deal with tabular data"
   },
   {
     "objectID": "talk_2.html#tabular-data",
@@ -32,14 +32,14 @@
     "href": "talk_2.html#data-1",
     "title": "Regression Models",
     "section": "Data",
-    "text": "Data\n\n\nThe size of observations \\(n\\) keeps growing over time\nthe size of the variables \\(r\\) is also increase\ntraditionally \\(n &gt; r\\) but now other situations are common\nthere is information in data before start modelling we need to explore (see the package gamlss.prepdata)\ndata partition helps the model building?"
+    "text": "Data\n\nThe size of observations \\(n\\) keeps growing over time\nthe size of the variables \\(r\\) is also increase\ntraditionally \\(n &gt; r\\) but now other situations are common\nthere is information in data before start modelling we need to explore (see the package gamlss.prepdata)\ndata partition helps the model building?"
   },
   {
     "objectID": "talk_2.html#data-partition",
     "href": "talk_2.html#data-partition",
     "title": "Regression Models",
     "section": "Data Partition",
-    "text": "Data Partition\n\ndata partition help with\n\nchecking for over-fitting\nhelping to improve inference by providing extra information about variations\n\nthere two types of partition\n\nsingle partition (holdout samples)\nmultiple partitions (bootstrapping, K-fold cross validation )"
+    "text": "Data Partition\ndata partition help with\n\nchecking for over-fitting\nhelping to improve inference by providing extra information about variations\n\nthere two types of partition\n\nsingle partition (holdout samples)\nmultiple partitions (bootstrapping, K-fold cross validation )"
   },
   {
     "objectID": "talk_2.html#data-partition-2",
@@ -53,7 +53,7 @@
     "href": "talk_2.html#examples-of-data",
     "title": "Regression Models",
     "section": "Examples of data",
-    "text": "Examples of data\n\n\ntoxicity in USA lakes (Merder et al. 2023)\npollution in the oceans using satellite images (Merder et al. 2024)\narsenic in EU soil see (Fendrich et al. 2024)\nmonitor liver functions during pregnancy (Judah et al. 2025)\nphosphorus in the soil in EU (current work)"
+    "text": "Examples of data\n\ntoxicity in USA lakes (Merder et al. 2023)\npollution in the oceans using satellite images (Merder et al. 2024)\narsenic in EU soil see (Fendrich et al. 2024)\nmonitor liver functions during pregnancy (Judah et al. 2025)\nphosphorus in the soil in EU (current work)"
   },
   {
     "objectID": "talk_2.html#examples-liver-function",
@@ -74,42 +74,42 @@
     "href": "talk_2.html#models",
     "title": "Regression Models",
     "section": "Models",
-    "text": "Models\n\na model is a simplification of reality.\n\n\n\ntoy models, \nfashion models \nmathematical models.  where mathematical equations are used to describe reality."
+    "text": "Models\n\na model is a simplification of reality.\ntoy models, \nfashion models \nmathematical models.  where mathematical equations are used to describe reality."
   },
   {
     "objectID": "talk_2.html#models-2",
     "href": "talk_2.html#models-2",
     "title": "Regression Models",
     "section": "Models (2)",
-    "text": "Models (2)\n\n\n\nall models are wrong but some are useful.\n– George Box (1979)\n\nwhether a model is useful depends on the purpose of the study.\nis the model adequate to answer the question?"
+    "text": "Models (2)\n\n\nall models are wrong but some are useful.\n– George Box (1979)\n\nwhether a model is useful depends on the purpose of the study.\nis the model adequate to answer the question?"
   },
   {
     "objectID": "talk_2.html#question",
     "href": "talk_2.html#question",
     "title": "Regression Models",
     "section": "question",
-    "text": "question\n\n\nthe question is the hypothesis, the purpose of the study; It is what the researcher tries to understand and answer\nthe next question is:\ncan the data or the model answer the question in hand?\nif the answer is yes then how.\ncan be answered by regression analysis?\nregression is an input-output model."
+    "text": "question\n\nthe question is the hypothesis, the purpose of the study; It is what the researcher tries to understand and answer\nthe next question is:\ncan the data or the model answer the question in hand?\nif the answer is yes then how.\ncan be answered by regression analysis?\nregression is an input-output model."
   },
   {
     "objectID": "talk_2.html#input-output",
     "href": "talk_2.html#input-output",
     "title": "Regression Models",
     "section": "Input-output",
-    "text": "Input-output\n\n\nwe have information on variable(s) \\(X\\), the input variables,\nand we want to use this information to say something about the variable(s) \\(Y\\) the output.\nInput-output model are supervised learning model (since a response variable exist)"
+    "text": "Input-output\n\nwe have information on variable(s) \\(X\\), the input variables,\nand we want to use this information to say something about the variable(s) \\(Y\\) the output.\nInput-output model are supervised learning model (since a response variable exist)"
   },
   {
     "objectID": "talk_2.html#input-output-2",
     "href": "talk_2.html#input-output-2",
     "title": "Regression Models",
     "section": "Input-output (2)",
-    "text": "Input-output (2)\nBreiman (2003)\n\n\n\n\\[\nX  {\\longrightarrow}  \\fbox{NATURE} {\\longrightarrow} Y, \\ \\textit{(complex)}\n\\]\n\\[\nX  {\\longrightarrow}  \\fbox{Model} {\\longrightarrow} Y \\ \\textit{(simpler)}\n\\]\n\\[\nX  {\\longrightarrow} \\fbox{f()}  {\\longrightarrow} Y \\ \\textit{(mathematical model)}\n\\]\n\n\n\nthe task is to unmask the unknown function \\(f()\\).\na compete unspecified function lead to AI otherwise we rely on assumtions"
+    "text": "Input-output (2)\nBreiman (2003)\n\n\\[\nX  {\\longrightarrow}  \\fbox{NATURE} {\\longrightarrow} Y, \\ \\textit{(complex)}\n\\]\n\\[\nX  {\\longrightarrow}  \\fbox{Model} {\\longrightarrow} Y \\ \\textit{(simpler)}\n\\]\n\\[\nX  {\\longrightarrow} \\fbox{f()}  {\\longrightarrow} Y \\ \\textit{(mathematical model)}\n\\]\nthe task is to unmask the unknown function \\(f()\\).\na compete unspecified function lead to AI otherwise we rely on assumtions"
   },
   {
     "objectID": "talk_2.html#assumptions",
     "href": "talk_2.html#assumptions",
     "title": "Regression Models",
     "section": "Assumptions",
-    "text": "Assumptions\n\n\nan assumption is an axiomatic statement which need to be accepted for the model to work.\nthe reasoning is that: if the assumptions are correct then the model should be OK\nmathematical assumptions also help intepretation of a model i.e.\n\na linear assumption for \\(f()\\) is \\(\\alpha+\\beta_1 x_1 + \\ldots + \\beta_p x_p\\)\nadditive assumption for \\(f()\\) is \\(\\alpha+f_1(x_1) + \\ldots + f_p(x_p)\\)"
+    "text": "Assumptions\n\nan assumption is an axiomatic statement which need to be accepted for the model to work.\nthe reasoning is that: if the assumptions are correct then the model should be OK\nmathematical assumptions also help intepretation of a model i.e.\n\na linear assumption for \\(f()\\) is \\(\\alpha+\\beta_1 x_1 + \\ldots + \\beta_p x_p\\)\nadditive assumption for \\(f()\\) is \\(\\alpha+f_1(x_1) + \\ldots + f_p(x_p)\\)"
   },
   {
     "objectID": "talk_2.html#assumption-linear-model",
@@ -137,35 +137,35 @@
     "href": "talk_2.html#assumptions-2",
     "title": "Regression Models",
     "section": "Assumptions (2)",
-    "text": "Assumptions (2)\n\n\nexplicit assumptions, usually mathematical, are easy to check\nimplicit assumptions (more difficult to check)\nincorrect assumptions could lead to questionable scientific discoveries\nwe should check explicit assumptions using diagnostic tools\nalgorithmic models make mostly implicit assumptions about the function \\(f()\\)."
+    "text": "Assumptions (2)\n\nexplicit assumptions, usually mathematical, are easy to check\nimplicit assumptions (more difficult to check)\nincorrect assumptions could lead to questionable scientific discoveries\nwe should check explicit assumptions using diagnostic tools\nalgorithmic models make mostly implicit assumptions about the function \\(f()\\)."
   },
   {
     "objectID": "talk_2.html#algorithmic-model",
     "href": "talk_2.html#algorithmic-model",
     "title": "Regression Models",
     "section": "Algorithmic model",
-    "text": "Algorithmic model\n\n\nan algorithmic model is a step-by-step computational procedure designed to perform a task by systematically transforming inputs into outputs according to a defined set of rules.\nno explicit assumptions for \\(f()\\) are needed but a lot of implicit assumptions depending on the algorithm\nalgorithmic models (like mathematical models) can be deterministic or stochastic"
+    "text": "Algorithmic model\n\nan algorithmic model is a step-by-step computational procedure designed to perform a task by systematically transforming inputs into outputs according to a defined set of rules.\nno explicit assumptions for \\(f()\\) are needed but a lot of implicit assumptions depending on the algorithm\nalgorithmic models (like mathematical models) can be deterministic or stochastic"
   },
   {
     "objectID": "talk_2.html#stochastic-model",
     "href": "talk_2.html#stochastic-model",
     "title": "Regression Models",
     "section": "Stochastic model",
-    "text": "Stochastic model\n\n\na stochastic model is a (mathematical or algorithmic) model which incorporates randomness so its output is not completely predictable even with the same starting conditions.\nstochastic regression models contain probabilistic assumptions on how the input-output model is generated.\nthe minimal assumption for a regression model is about the behaviour of the response\nin linear models \\(\\textbf{y}=\\textbf{X}\\boldsymbol{\\beta}+e\\) where \\(e_i \\sim N(\\boldsymbol{0}, \\sigma^2)\\) is the classical stochastic model."
+    "text": "Stochastic model\n\na stochastic model is a (mathematical or algorithmic) model which incorporates randomness so its output is not completely predictable even with the same starting conditions.\nstochastic regression models contain probabilistic assumptions on how the input-output model is generated.\nthe minimal assumption for a regression model is about the behaviour of the response\nin linear models \\(\\textbf{y}=\\textbf{X}\\boldsymbol{\\beta}+e\\) where \\(e_i \\sim N(\\boldsymbol{0}, \\sigma^2)\\) is the classical stochastic model."
   },
   {
     "objectID": "talk_2.html#stochastic-model-2",
     "href": "talk_2.html#stochastic-model-2",
     "title": "Regression Models",
     "section": "Stochastic model (2)",
-    "text": "Stochastic model (2)\n\n\nnot all problems need a stochastic component\nStochastic models are often used because many natural, social, and physical systems have inherent variability.\na stochastic algorithmic model is often called a machine learning model"
+    "text": "Stochastic model (2)\n\nnot all problems need a stochastic component\nStochastic models are often used because many natural, social, and physical systems have inherent variability.\na stochastic algorithmic model is often called a machine learning model"
   },
   {
     "objectID": "talk_2.html#machine-learning",
     "href": "talk_2.html#machine-learning",
     "title": "Regression Models",
     "section": "Machine Learning",
-    "text": "Machine Learning\n\n\na typical supervised machine learning model has the form \\[Y= g(X)+ \\epsilon\\] where the error \\(\\epsilon\\) is assumed to be an identical and independently distributed random variable\nimplicitly it is assumed that the error is a symmetrical random variable."
+    "text": "Machine Learning\n\na typical supervised machine learning model has the form \\[Y= g(X)+ \\epsilon\\] where the error \\(\\epsilon\\) is assumed to be an identical and independently distributed random variable\nimplicitly it is assumed that the error is a symmetrical random variable."
   },
   {
     "objectID": "talk_2.html#machine-learning-2",
@@ -193,7 +193,7 @@
     "href": "talk_2.html#black-box",
     "title": "Regression Models",
     "section": "Black box",
-    "text": "Black box\n\nalgorithm models could be black box’s\nthey are two main reasons for a black box\n\n\n\nthe function \\(f()\\) is too complicated to explain\nthere are proprietary reasons\n\n\n\nblack box against interpretable\ntransparent, explainable, comprehensive models\nthe question in hand should determine whether the model should be interpretable."
+    "text": "Black box\n\nalgorithm models could be black box’s\nthey are two main reasons for a black box\n\n\nthe function \\(f()\\) is too complicated to explain\nthere are proprietary reasons\n\n\n\nblack box against interpretable\ntransparent, explainable, comprehensive models\nthe question in hand should determine whether the model should be interpretable."
   },
   {
     "objectID": "talk_2.html#neural-network-fit",
@@ -214,7 +214,7 @@
     "href": "talk_2.html#black-box-2",
     "title": "Regression Models",
     "section": "Black box (2)",
-    "text": "Black box (2)\n\n\n“Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead” (Rudin 2019)\nthe argument came from the fact that among all adequate models (the Rashomon set) few are interpretable (Rudin et al. 2024)"
+    "text": "Black box (2)\n\n“Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead” (Rudin 2019)\nthe argument came from the fact that among all adequate models (the Rashomon set) few are interpretable (Rudin et al. 2024)"
   },
   {
     "objectID": "talk_2.html#summary",
@@ -228,7 +228,7 @@
     "href": "talk_2.html#risk-functions",
     "title": "Regression Models",
     "section": "Risk functions",
-    "text": "Risk functions\n\n\nA risk function measure the accuracy of the model. [it measure how accurate \\(f()\\) is for a specific risk function]\na risk is defined as the expected loss \\(\\ell\\). That is, we define a lost function \\(\\ell\\) first as a function of the response \\(Y\\) and the explanatory variable \\(X\\) and then we take expectations: \\[R(f) = \\mathbb{E}_{X,Y} [ \\ell(g(X), Y) ]\\] -\\(g()\\) is the model,"
+    "text": "Risk functions\n\nA risk function measure the accuracy of the model. [it measure how accurate \\(f()\\) is for a specific risk function]\na risk is defined as the expected loss \\(\\ell\\). That is, we define a lost function \\(\\ell\\) first as a function of the response \\(Y\\) and the explanatory variable \\(X\\) and then we take expectations: \\[R(f) = \\mathbb{E}_{X,Y} [ \\ell(g(X), Y) ]\\] -\\(g()\\) is the model,"
   },
   {
     "objectID": "talk_2.html#loss-functions",
@@ -417,7 +417,7 @@
     "href": "talk_2.html#introduction",
     "title": "Regression Models",
     "section": "Introduction",
-    "text": "Introduction\n\n\nmachine learning models as they stand, are not always suitable for environmental data\ngoodness of fit measure should represent more closely the question in hand\nInterpretation of the model is important for improvements in scientific knowledge\nthis talk is my personal opinion on how regression models should adapt for environmental data"
+    "text": "Introduction\n\nmachine learning models as they stand, are not always suitable for environmental data\ngoodness of fit measure should represent more closely the question in hand\nInterpretation of the model is important for improvements in scientific knowledge\nthis talk is my personal opinion on how regression models should adapt for environmental data"
   },
   {
     "objectID": "talk_2.html#summary-not-finished-yet",

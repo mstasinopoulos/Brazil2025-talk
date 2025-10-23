@@ -360,30 +360,24 @@ Mikis Stasinopoulos (University of Greenwich)
 </section>
 <section id="introduction" class="slide level2">
 <h2>Introduction</h2>
-<div>
 <ul>
-<li class="fragment"><p><code>machine learning models</code> as they stand, are not always suitable for environmental data</p></li>
-<li class="fragment"><p><code>goodness of fit</code> measure should represent more closely the <code>question</code> in hand</p></li>
-<li class="fragment"><p><code>Interpretation</code> of the model is important for improvements in scientific knowledge</p></li>
-<li class="fragment"><p>this talk is my <code>personal</code> opinion on how regression models should adapt for environmental <code>data</code></p></li>
+<li><p><code>machine learning models</code> as they stand, are not always suitable for environmental data</p></li>
+<li><p><code>goodness of fit</code> measure should represent more closely the <code>question</code> in hand</p></li>
+<li><p><code>Interpretation</code> of the model is important for improvements in scientific knowledge</p></li>
+<li><p>this talk is my <code>personal</code> opinion on how regression models should adapt for environmental <code>data</code></p></li>
 </ul>
-</div>
 </section>
 <section id="data" class="slide level2">
 <h2>Data</h2>
 <p><strong>data</strong>; used to mean a file with a lot of;</p>
-<div>
 <ul>
-<li class="fragment"><code>numbers</code>, (but data today could have)</li>
-<li class="fragment"><code>text</code>,</li>
-<li class="fragment"><code>pixels</code>, or</li>
-<li class="fragment">any other file that containing <code>information</code>.</li>
+<li><code>numbers</code>, (but data today could have)</li>
+<li><code>text</code>,</li>
+<li><code>pixels</code>, or</li>
+<li>any other file that containing <code>information</code>.</li>
 </ul>
-</div>
-<div>
 <p><strong>data analysis</strong> is the art of extraction <code>information</code> from the data.</p>
 <p>Regression model deal with <code>tabular</code> data</p>
-</div>
 </section>
 <section id="tabular-data" class="slide level2 smaller">
 <h2>Tabular data</h2>
@@ -485,30 +479,26 @@ Table&nbsp;1: The Table of Data
 </section>
 <section id="data-1" class="slide level2">
 <h2>Data</h2>
-<div>
 <ul>
-<li class="fragment"><p>The size of observations <span class="math inline">\(n\)</span> keeps growing over time</p></li>
-<li class="fragment"><p>the size of the variables <span class="math inline">\(r\)</span> is also increase</p></li>
-<li class="fragment"><p>traditionally <span class="math inline">\(n &gt; r\)</span> but now other situations are common</p></li>
-<li class="fragment"><p>there is <code>information</code> in data before start modelling we need to explore (see the package <code>gamlss.prepdata</code>)</p></li>
-<li class="fragment"><p>data <code>partition</code> helps the model building?</p></li>
+<li><p>The size of observations <span class="math inline">\(n\)</span> keeps growing over time</p></li>
+<li><p>the size of the variables <span class="math inline">\(r\)</span> is also increase</p></li>
+<li><p>traditionally <span class="math inline">\(n &gt; r\)</span> but now other situations are common</p></li>
+<li><p>there is <code>information</code> in data before start modelling we need to explore (see the package <code>gamlss.prepdata</code>)</p></li>
+<li><p>data <code>partition</code> helps the model building?</p></li>
 </ul>
-</div>
 </section>
 <section id="data-partition" class="slide level2">
 <h2>Data Partition</h2>
-<div>
 <p>data partition help with</p>
 <ul>
-<li class="fragment"><p>checking for <code>over-fitting</code></p></li>
-<li class="fragment"><p>helping to improve <code>inference</code> by providing extra information about variations</p></li>
+<li><p>checking for <code>over-fitting</code></p></li>
+<li><p>helping to improve <code>inference</code> by providing extra information about variations</p></li>
 </ul>
 <p>there two types of partition</p>
 <ul>
-<li class="fragment"><p><code>single</code> partition (holdout samples)</p></li>
-<li class="fragment"><p><code>multiple</code> partitions (bootstrapping, K-fold cross validation )</p></li>
+<li><p><code>single</code> partition (holdout samples)</p></li>
+<li><p><code>multiple</code> partitions (bootstrapping, K-fold cross validation )</p></li>
 </ul>
-</div>
 </section>
 <section id="data-partition-2" class="slide level2">
 <h2>Data Partition (2)</h2>
@@ -516,15 +506,13 @@ Table&nbsp;1: The Table of Data
 <img data-src="data_partition.png" width="100" class="r-stretch quarto-figure-center"><p class="caption">partition</p></section>
 <section id="examples-of-data" class="slide level2">
 <h2>Examples of data</h2>
-<div>
 <ul>
-<li class="fragment"><p><code>toxicity</code> in USA lakes <span class="citation" data-cites="merder2023geographic">(<a href="#/reference" role="doc-biblioref" onclick="">Merder et al. 2023</a>)</span></p></li>
-<li class="fragment"><p><code>pollution</code> in the oceans using satellite images <span class="citation" data-cites="merder2024novel">(<a href="#/reference" role="doc-biblioref" onclick="">Merder et al. 2024</a>)</span></p></li>
-<li class="fragment"><p><code>arsenic</code> in EU soil see <span class="citation" data-cites="fendrich2024modeling">(<a href="#/reference" role="doc-biblioref" onclick="">Fendrich et al. 2024</a>)</span></p></li>
-<li class="fragment"><p>monitor liver functions during <code>pregnancy</code> <span class="citation" data-cites="judah2025reference">(<a href="#/reference" role="doc-biblioref" onclick="">Judah et al. 2025</a>)</span></p></li>
-<li class="fragment"><p><code>phosphorus</code> in the soil in EU (current work)</p></li>
+<li><p><code>toxicity</code> in USA lakes <span class="citation" data-cites="merder2023geographic">(<a href="#/reference" role="doc-biblioref" onclick="">Merder et al. 2023</a>)</span></p></li>
+<li><p><code>pollution</code> in the oceans using satellite images <span class="citation" data-cites="merder2024novel">(<a href="#/reference" role="doc-biblioref" onclick="">Merder et al. 2024</a>)</span></p></li>
+<li><p><code>arsenic</code> in EU soil see <span class="citation" data-cites="fendrich2024modeling">(<a href="#/reference" role="doc-biblioref" onclick="">Fendrich et al. 2024</a>)</span></p></li>
+<li><p>monitor liver functions during <code>pregnancy</code> <span class="citation" data-cites="judah2025reference">(<a href="#/reference" role="doc-biblioref" onclick="">Judah et al. 2025</a>)</span></p></li>
+<li><p><code>phosphorus</code> in the soil in EU (current work)</p></li>
 </ul>
-</div>
 </section>
 <section id="examples-liver-function" class="slide level2">
 <h2>Examples liver function</h2>
@@ -541,74 +529,58 @@ Table&nbsp;1: The Table of Data
 <section id="models" class="slide level2">
 <h2>Models</h2>
 <ul>
-<li>a <code>model</code> is a simplification of reality.</li>
+<li><p>a <code>model</code> is a simplification of reality.</p></li>
+<li><p><strong>toy</strong> models, <img data-src="toy_car.png" width="80" alt="toy model"></p></li>
+<li><p><strong>fashion</strong> models <img data-src="maleFashionModel.png" width="80" alt="fashion model"></p></li>
+<li><p><strong>mathematical</strong> models. <img data-src="math_model.png" width="80" alt="math model"> where mathematical equations are used to describe reality.</p></li>
 </ul>
-<div>
-<ul>
-<li class="fragment"><strong>toy</strong> models, <img data-src="toy_car.png" width="80" alt="toy model"></li>
-<li class="fragment"><strong>fashion</strong> models <img data-src="maleFashionModel.png" width="80" alt="fashion model"></li>
-<li class="fragment"><strong>mathematical</strong> models. <img data-src="math_model.png" width="80" alt="math model"> where mathematical equations are used to describe reality.</li>
-</ul>
-</div>
 </section>
 <section id="models-2" class="slide level2 pause">
 <h2>Models (2)</h2>
-<div>
 <ul>
-<li class="fragment"><blockquote>
+<li><blockquote>
 <p><code>all models are wrong but some are useful</code>.</p>
 <p>– George <span class="citation" data-cites="box1979robustness">Box (<a href="#/reference" role="doc-biblioref" onclick="">1979</a>)</span></p>
 </blockquote></li>
-<li class="fragment"><p>whether a model is useful depends on the <code>purpose</code> of the study.</p></li>
-<li class="fragment"><p>is the <code>model</code> adequate to answer the <code>question</code>?</p></li>
+<li><p>whether a model is useful depends on the <code>purpose</code> of the study.</p></li>
+<li><p>is the <code>model</code> adequate to answer the <code>question</code>?</p></li>
 </ul>
-</div>
 </section>
 <section id="question" class="slide level2">
 <h2>question</h2>
-<div>
 <ul>
-<li class="fragment"><p>the <code>question</code> is the <code>hypothesis</code>, the <code>purpose</code> of the study; It is what the researcher tries to understand and answer</p></li>
-<li class="fragment"><p>the next question is:</p>
+<li><p>the <code>question</code> is the <code>hypothesis</code>, the <code>purpose</code> of the study; It is what the researcher tries to understand and answer</p></li>
+<li><p>the next question is:</p>
 <p>can the <code>data</code> or the <code>model</code> answer the question in hand?</p></li>
-<li class="fragment"><p>if the answer is <code>yes</code> then <code>how</code>.</p></li>
-<li class="fragment"><p>can be answered by <code>regression</code> analysis?</p></li>
-<li class="fragment"><p>regression is an <code>input-output</code> model.</p></li>
+<li><p>if the answer is <code>yes</code> then <code>how</code>.</p></li>
+<li><p>can be answered by <code>regression</code> analysis?</p></li>
+<li><p>regression is an <code>input-output</code> model.</p></li>
 </ul>
-</div>
 </section>
 <section id="input-output" class="slide level2 pause">
 <h2>Input-output</h2>
-<div>
 <ul>
-<li class="fragment"><p>we have information on variable(s) <span class="math inline">\(X\)</span>, the <strong>input</strong> variables,</p></li>
-<li class="fragment"><p>and we want to use this information to say something about the variable(s) <span class="math inline">\(Y\)</span> the <strong>output</strong>.</p></li>
-<li class="fragment"><p>Input-output model are <code>supervised</code> learning model (since a <code>response</code> variable exist)</p></li>
+<li><p>we have information on variable(s) <span class="math inline">\(X\)</span>, the <strong>input</strong> variables,</p></li>
+<li><p>and we want to use this information to say something about the variable(s) <span class="math inline">\(Y\)</span> the <strong>output</strong>.</p></li>
+<li><p>Input-output model are <code>supervised</code> learning model (since a <code>response</code> variable exist)</p></li>
 </ul>
-</div>
 </section>
 <section id="input-output-2" class="slide level2">
 <h2>Input-output (2)</h2>
 <p><span class="citation" data-cites="breiman2003statistical">Breiman (<a href="#/reference" role="doc-biblioref" onclick="">2003</a>)</span></p>
-<div>
-<div>
 <ul>
-<li class="fragment"><p><span class="math display">\[
+<li><p><span class="math display">\[
 X  {\longrightarrow}  \fbox{NATURE} {\longrightarrow} Y, \ \textit{(complex)}
 \]</span></p></li>
-<li class="fragment"><p><span class="math display">\[
+<li><p><span class="math display">\[
 X  {\longrightarrow}  \fbox{Model} {\longrightarrow} Y \ \textit{(simpler)}
 \]</span></p></li>
-<li class="fragment"><p><span class="math display">\[
+<li><p><span class="math display">\[
 X  {\longrightarrow} \fbox{f()}  {\longrightarrow} Y \ \textit{(mathematical model)}
 \]</span></p></li>
+<li><p>the task is to unmask the unknown <code>function</code> <span class="math inline">\(f()\)</span>.</p></li>
+<li><p>a compete unspecified function lead to <code>AI</code> otherwise we rely on <code>assumtions</code></p></li>
 </ul>
-</div>
-<ul>
-<li class="fragment"><p>the task is to unmask the unknown <code>function</code> <span class="math inline">\(f()\)</span>.</p></li>
-<li class="fragment"><p>a compete unspecified function lead to AI otherwise we rely on <code>assumtions</code></p></li>
-</ul>
-</div>
 <!-- ## AI  -->
 <!-- ::: {.incremental} -->
 <!-- - once I asked someone;  -->
@@ -620,17 +592,15 @@ X  {\longrightarrow} \fbox{f()}  {\longrightarrow} Y \ \textit{(mathematical mod
 </section>
 <section id="assumptions" class="slide level2">
 <h2>Assumptions</h2>
-<div>
 <ul>
-<li class="fragment"><p>an <code>assumption</code> is an axiomatic statement which need to be accepted for the model to work.</p></li>
-<li class="fragment"><p>the reasoning is that: <code>if the assumptions are correct then the model should be OK</code></p></li>
-<li class="fragment"><p>mathematical <code>assumptions</code> also help <code>intepretation</code> of a model i.e.</p>
+<li><p>an <code>assumption</code> is an axiomatic statement which need to be accepted for the model to work.</p></li>
+<li><p>the reasoning is that: <code>if the assumptions are correct then the model should be OK</code></p></li>
+<li><p>mathematical <code>assumptions</code> also help <code>intepretation</code> of a model i.e.</p>
 <ul>
-<li class="fragment">a <code>linear</code> assumption for <span class="math inline">\(f()\)</span> is <span class="math inline">\(\alpha+\beta_1 x_1 + \ldots + \beta_p x_p\)</span></li>
-<li class="fragment"><code>additive</code> assumption for <span class="math inline">\(f()\)</span> is <span class="math inline">\(\alpha+f_1(x_1) + \ldots + f_p(x_p)\)</span></li>
+<li>a <code>linear</code> assumption for <span class="math inline">\(f()\)</span> is <span class="math inline">\(\alpha+\beta_1 x_1 + \ldots + \beta_p x_p\)</span></li>
+<li><code>additive</code> assumption for <span class="math inline">\(f()\)</span> is <span class="math inline">\(\alpha+f_1(x_1) + \ldots + f_p(x_p)\)</span></li>
 </ul></li>
 </ul>
-</div>
 </section>
 <section id="assumption-linear-model" class="slide level2">
 <h2>Assumption: linear model</h2>
@@ -664,55 +634,45 @@ GAMLSS-RS iteration  3: Global Deviance = 19304.4115 eps = 0.000000     </code><
 <img data-src="talk_2_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"></section>
 <section id="assumptions-2" class="slide level2">
 <h2>Assumptions (2)</h2>
-<div>
 <ul>
-<li class="fragment"><p><code>explicit</code> assumptions, usually mathematical, are easy to check</p></li>
-<li class="fragment"><p><code>implicit</code> assumptions (more difficult to check)</p></li>
-<li class="fragment"><p><code>incorrect</code> assumptions could lead to questionable scientific discoveries</p></li>
-<li class="fragment"><p>we should check <code>explicit</code> assumptions using <code>diagnostic</code> tools</p></li>
-<li class="fragment"><p><code>algorithmic models</code> make mostly implicit assumptions about the function <span class="math inline">\(f()\)</span>.</p></li>
+<li><p><code>explicit</code> assumptions, usually mathematical, are easy to check</p></li>
+<li><p><code>implicit</code> assumptions (more difficult to check)</p></li>
+<li><p><code>incorrect</code> assumptions could lead to questionable scientific discoveries</p></li>
+<li><p>we should check <code>explicit</code> assumptions using <code>diagnostic</code> tools</p></li>
+<li><p><code>algorithmic models</code> make mostly implicit assumptions about the function <span class="math inline">\(f()\)</span>.</p></li>
 </ul>
-</div>
 </section>
 <section id="algorithmic-model" class="slide level2">
 <h2>Algorithmic model</h2>
-<div>
 <ul>
-<li class="fragment"><p>an <code>algorithmic model</code> is a step-by-step computational procedure designed to perform a task by systematically transforming inputs into outputs according to a defined set of rules.</p></li>
-<li class="fragment"><p>no <code>explicit</code> assumptions for <span class="math inline">\(f()\)</span> are needed but a lot of <code>implicit</code> assumptions depending on the algorithm</p></li>
-<li class="fragment"><p>algorithmic models (like mathematical models) can be deterministic or <code>stochastic</code></p></li>
+<li><p>an <code>algorithmic model</code> is a step-by-step computational procedure designed to perform a task by systematically transforming inputs into outputs according to a defined set of rules.</p></li>
+<li><p>no <code>explicit</code> assumptions for <span class="math inline">\(f()\)</span> are needed but a lot of <code>implicit</code> assumptions depending on the algorithm</p></li>
+<li><p>algorithmic models (like mathematical models) can be deterministic or <code>stochastic</code></p></li>
 </ul>
-</div>
 </section>
 <section id="stochastic-model" class="slide level2">
 <h2>Stochastic model</h2>
-<div>
 <ul>
-<li class="fragment"><p>a <code>stochastic</code> model is a (mathematical or algorithmic) model which incorporates randomness so its output is not completely predictable even with the same starting conditions.</p></li>
-<li class="fragment"><p>stochastic regression models contain <code>probabilistic</code> assumptions on how the input-output model is generated.</p></li>
-<li class="fragment"><p>the minimal assumption for a regression model is about the behaviour of the <code>response</code></p></li>
-<li class="fragment"><p>in <code>linear</code> models <span class="math inline">\(\textbf{y}=\textbf{X}\boldsymbol{\beta}+e\)</span> where <span class="math inline">\(e_i \sim N(\boldsymbol{0}, \sigma^2)\)</span> is the classical stochastic model.</p></li>
+<li><p>a <code>stochastic</code> model is a (mathematical or algorithmic) model which incorporates randomness so its output is not completely predictable even with the same starting conditions.</p></li>
+<li><p>stochastic regression models contain <code>probabilistic</code> assumptions on how the input-output model is generated.</p></li>
+<li><p>the minimal assumption for a regression model is about the behaviour of the <code>response</code></p></li>
+<li><p>in <code>linear</code> models <span class="math inline">\(\textbf{y}=\textbf{X}\boldsymbol{\beta}+e\)</span> where <span class="math inline">\(e_i \sim N(\boldsymbol{0}, \sigma^2)\)</span> is the classical stochastic model.</p></li>
 </ul>
-</div>
 </section>
 <section id="stochastic-model-2" class="slide level2">
 <h2>Stochastic model (2)</h2>
-<div>
 <ul>
-<li class="fragment"><p><code>not</code> all problems need a stochastic component</p></li>
-<li class="fragment"><p>Stochastic models are often used because many natural, social, and physical systems have inherent variability.</p></li>
-<li class="fragment"><p>a stochastic algorithmic model is often called a <code>machine learning</code> model</p></li>
+<li><p><code>not</code> all problems need a stochastic component</p></li>
+<li><p>Stochastic models are often used because many natural, social, and physical systems have inherent variability.</p></li>
+<li><p>a stochastic algorithmic model is often called a <code>machine learning</code> model</p></li>
 </ul>
-</div>
 </section>
 <section id="machine-learning" class="slide level2">
 <h2>Machine Learning</h2>
-<div>
 <ul>
-<li class="fragment"><p>a typical supervised machine learning model has the form <span class="math display">\[Y= g(X)+ \epsilon\]</span> where the error <span class="math inline">\(\epsilon\)</span> is assumed to be an <code>identical and independently distributed</code> random variable</p></li>
-<li class="fragment"><p>implicitly it is assumed that the error is a <code>symmetrical</code> random variable.</p></li>
+<li><p>a typical supervised machine learning model has the form <span class="math display">\[Y= g(X)+ \epsilon\]</span> where the error <span class="math inline">\(\epsilon\)</span> is assumed to be an <code>identical and independently distributed</code> random variable</p></li>
+<li><p>implicitly it is assumed that the error is a <code>symmetrical</code> random variable.</p></li>
 </ul>
-</div>
 </section>
 <section id="machine-learning-2" class="slide level2">
 <h2>Machine Learning (2)</h2>
@@ -755,27 +715,23 @@ GAMLSS-RS iteration  3: Global Deviance = 18680.5446 eps = 0.000001     </code><
 <li><p>algorithm models could be <code>black box</code>’s</p></li>
 <li><p>they are two main reasons for a black box</p></li>
 </ul>
-<div>
 <ol type="i">
-<li class="fragment"><p>the function <span class="math inline">\(f()\)</span> is too <code>complicated</code> to explain</p></li>
-<li class="fragment"><p>there are <code>proprietary</code> reasons</p></li>
+<li><p>the function <span class="math inline">\(f()\)</span> is too <code>complicated</code> to explain</p></li>
+<li><p>there are <code>proprietary</code> reasons</p></li>
 </ol>
 <!-- -   `black box` $\stackrel{\small{against}}{\Longleftrightarrow}$ `interpretable` -->
 <ul>
-<li class="fragment"><p><code>black box</code> against <code>interpretable</code></p></li>
-<li class="fragment"><p><code>transparent</code>, <code>explainable</code>, <code>comprehensive</code> models</p></li>
-<li class="fragment"><p>the <code>question</code> in hand should determine whether the model should be <code>interpretable</code>.</p></li>
+<li><p><code>black box</code> against <code>interpretable</code></p></li>
+<li><p><code>transparent</code>, <code>explainable</code>, <code>comprehensive</code> models</p></li>
+<li><p>the <code>question</code> in hand should determine whether the model should be <code>interpretable</code>.</p></li>
 </ul>
-</div>
 </section>
 <section id="black-box-2" class="slide level2">
 <h2>Black box (2)</h2>
-<div>
 <ul>
-<li class="fragment"><p>“Stop explaining black box machine learning models for <code>high stakes decisions</code> and use <code>interpretable</code> models instead” <span class="citation" data-cites="rudin2019stop">(<a href="#/reference" role="doc-biblioref" onclick="">Rudin 2019</a>)</span></p></li>
-<li class="fragment"><p>the argument came from the fact that among all adequate models (the <code>Rashomon set</code>) few are <code>interpretable</code> <span class="citation" data-cites="rudin2024amazing">(<a href="#/reference" role="doc-biblioref" onclick="">Rudin et al. 2024</a>)</span></p></li>
+<li><p>“Stop explaining black box machine learning models for <code>high stakes decisions</code> and use <code>interpretable</code> models instead” <span class="citation" data-cites="rudin2019stop">(<a href="#/reference" role="doc-biblioref" onclick="">Rudin 2019</a>)</span></p></li>
+<li><p>the argument came from the fact that among all adequate models (the <code>Rashomon set</code>) few are <code>interpretable</code> <span class="citation" data-cites="rudin2024amazing">(<a href="#/reference" role="doc-biblioref" onclick="">Rudin et al. 2024</a>)</span></p></li>
 </ul>
-</div>
 </section>
 <section id="neural-network-fit" class="slide level2">
 <h2>neural network fit</h2>
@@ -816,13 +772,11 @@ GAMLSS-RS iteration  3: Global Deviance = 19294.2941 eps = 0.000000     </code><
 </section>
 <section id="risk-functions" class="slide level2">
 <h2>Risk functions</h2>
-<div>
 <ul>
-<li class="fragment"><p>A <code>risk</code> function measure the <code>accuracy</code> of the model. [it measure how accurate <span class="math inline">\(f()\)</span> is for a specific risk function]</p></li>
-<li class="fragment"><p>a <code>risk</code> is defined as the expected loss <span class="math inline">\(\ell\)</span>. That is, we define a lost function <span class="math inline">\(\ell\)</span> first as a function of the response <span class="math inline">\(Y\)</span> and the explanatory variable <span class="math inline">\(X\)</span> and then we take expectations: <span class="math display">\[R(f) = \mathbb{E}_{X,Y} [ \ell(g(X), Y) ]\]</span> -<span class="math inline">\(g()\)</span> is the model,<br>
+<li><p>A <code>risk</code> function measure the <code>accuracy</code> of the model. [it measure how accurate <span class="math inline">\(f()\)</span> is for a specific risk function]</p></li>
+<li><p>a <code>risk</code> is defined as the expected loss <span class="math inline">\(\ell\)</span>. That is, we define a lost function <span class="math inline">\(\ell\)</span> first as a function of the response <span class="math inline">\(Y\)</span> and the explanatory variable <span class="math inline">\(X\)</span> and then we take expectations: <span class="math display">\[R(f) = \mathbb{E}_{X,Y} [ \ell(g(X), Y) ]\]</span> -<span class="math inline">\(g()\)</span> is the model,<br>
 </p></li>
 </ul>
-</div>
 </section>
 <section id="loss-functions" class="slide level2">
 <h2>loss functions</h2>
