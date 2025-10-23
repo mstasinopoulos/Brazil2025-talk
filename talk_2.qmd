@@ -107,7 +107,7 @@ there two types of partition
 
 ## Data Partition (2)
 
-![](data_partition.png){width="100"}
+![partition](data_partition.png){width="100"}
 
 ## Examples of data
 
