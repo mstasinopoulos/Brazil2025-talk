@@ -207,7 +207,7 @@ plot(ALP~ga, data=DA.train, xlab="gestational age")
 
 -   if the answer is `yes` then `how`. 
 
--   can be answered by `regression`?
+-   can be answered by `regression` analysis?
 
 -   regression is an `input-output` model.
 :::
